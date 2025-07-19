@@ -129,6 +129,17 @@ DEBIAN_PACKAGE_VERSIONS = {
             "zlib1g": "1:1.2.11.dfsg-2+deb11u2",
         },
     },
+    "loong64": {
+        "unstable": {
+            "base-files": "12.4",
+            "ca-certificates": "20230311",
+            "libc-bin": "2.36-9",
+            "libc6": "2.36-9",
+            "netbase": "6.4",
+            "openssl": "3.0.9-1",
+            "tzdata": "2023c-7",
+        },
+    },
     "ppc64le": {
         "debian11": {
             "base-files": "11.1+deb11u6",
@@ -162,6 +173,17 @@ DEBIAN_PACKAGE_VERSIONS = {
             "openssl": "1.1.1n-0+deb11u4",
             "tzdata": "2021a-1+deb11u8",
             "zlib1g": "1:1.2.11.dfsg-2+deb11u2",
+        },
+    },
+    "riscv64": {
+        "unstable": {
+            "base-files": "12.4",
+            "ca-certificates": "20230311",
+            "libc-bin": "2.36-9",
+            "libc6": "2.36-9",
+            "netbase": "6.4",
+            "openssl": "3.0.9-1",
+            "tzdata": "2023c-7",
         },
     },
     "s390x": {

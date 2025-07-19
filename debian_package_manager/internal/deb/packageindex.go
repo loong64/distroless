@@ -16,10 +16,21 @@
 package deb
 
 import (
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/build/config"
+	"github.com/loong64/distroless/debian_package_manager/internal/build/config"
 )
 
 func PackageIndexGroup(snapshots *config.Snapshots, arch config.Arch, distro config.Distro) []*PackageIndex {
+	// special casing for unstable ports
+	if (arch == config.LOONG64 || arch == config.RISCV64) && distro == config.UNSTABLE {
+		if snapshots.Ports == "" {
+			// No previous snapshot.
+			return []*PackageIndex{}
+		}
+		return []*PackageIndex{
+			Ports(snapshots.Ports, arch, distro),
+		}
+	}
+
 	// special casing for missing security distros
 	if (arch == config.PPC64LE || arch == config.S390X) && distro == config.DEBIAN10 {
 		return []*PackageIndex{

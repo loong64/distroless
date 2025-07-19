@@ -16,8 +16,8 @@
 package main
 
 import (
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/cmd/flags"
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/build"
+	"github.com/loong64/distroless/debian_package_manager/cmd/flags"
+	"github.com/loong64/distroless/debian_package_manager/internal/build"
 )
 
 func main() {

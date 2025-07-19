@@ -25,11 +25,13 @@ const (
 	AMD64 Arch = iota
 	ARM64
 	ARM
+	LOONG64
 	PPC64LE
 	S390X
+	RISCV64
 )
 
-var archs = []Arch{AMD64, ARM64, ARM, PPC64LE, S390X}
+var archs = []Arch{AMD64, ARM64, ARM, LOONG64, PPC64LE, S390X, RISCV64}
 
 func (a Arch) String() string {
 	switch a {
@@ -39,10 +41,14 @@ func (a Arch) String() string {
 		return "arm64"
 	case ARM:
 		return "arm"
+	case LOONG64:
+		return "loong64"
 	case PPC64LE:
 		return "ppc64le"
 	case S390X:
 		return "s390x"
+	case RISCV64:
+		return "riscv64"
 	}
 	panic("unknown release")
 }
@@ -56,10 +62,14 @@ func (a Arch) DebianName() string {
 		return "arm64"
 	case ARM:
 		return "armhf"
+	case LOONG64:
+		return "loong64"
 	case PPC64LE:
 		return "ppc64el"
 	case S390X:
 		return "s390x"
+	case RISCV64:
+		return "riscv64"
 	}
 	panic("unknown release")
 }

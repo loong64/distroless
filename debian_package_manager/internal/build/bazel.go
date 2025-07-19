@@ -24,7 +24,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/deb"
+	"github.com/loong64/distroless/debian_package_manager/internal/deb"
 )
 
 var archivesTemplate = `# AUTO GENERATED

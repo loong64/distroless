@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/deb"
 	"github.com/google/go-cmp/cmp"
+	"github.com/loong64/distroless/debian_package_manager/internal/deb"
 )
 
 func testdata() map[string]map[string]map[string]*deb.Package {

@@ -1,0 +1,45 @@
+name: Custom Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+            path: |
+                ~/.cache/bazel
+                ~/.cache/bazel-repo
+            key: bazel-cache-${{ github.sha }}
+            restore-keys: |
+                bazel-cache-
+      - name: Build
+        run: |
+          bazel query "//base:*" | grep loong64
+          bazel build //base:static_nonroot_loong64_unstable
+          ls -la bazel-bin/base/static_nonroot_loong64_unstable/
+
+          bazel build //base:static_root_loong64_unstable
+          ls -la bazel-bin/base/static_root_loong64_unstable/
+
+      - name: Load Images
+        run: |
+          cd bazel-bin/base/static_nonroot_loong64_unstable
+          tar -cf ../nonroot.tar .
+          cd ../../..
+
+          cd bazel-bin/base/static_root_loong64_unstable
+          tar -cf ../root.tar .
+          cd ../../..
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: loong64-artifacts
+          path: |
+            bazel-bin/base/nonroot.tar
+            bazel-bin/base/root.tar
