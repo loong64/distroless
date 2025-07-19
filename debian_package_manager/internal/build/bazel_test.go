@@ -53,30 +53,30 @@ func TestWriteArchiveBazel(t *testing.T) {
 		t.Fatal(err)
 	}
 	want := `# AUTO GENERATED
-load("@distroless//private/remote:debian_archive.bzl", "debian_archive")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
 def repositories():
-    debian_archive(
+    http_file(
         name = "aaaa_1111_ssss",
-        package_name = "ssss",
+        downloaded_file_path = "ssss-aaaa-1111.deb",
         sha256 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         urls = ["https://example.com/ssss-aaaa-1111.deb"],
     )
-    debian_archive(
+    http_file(
         name = "aaaa_1111_xxxx",
-        package_name = "xxxx",
+        downloaded_file_path = "xxxx-aaaa-1111.deb",
         sha256 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         urls = ["https://example.com/xxxx-aaaa-1111.deb"],
     )
-    debian_archive(
+    http_file(
         name = "cccc_1111_xxxxpp",
-        package_name = "xxxx++",
+        downloaded_file_path = "xxxx++-cccc-1111.deb",
         sha256 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         urls = ["https://example.com/xxxx++-cccc-1111.deb"],
     )
-    debian_archive(
+    http_file(
         name = "cccc_2222_xxxx",
-        package_name = "xxxx",
+        downloaded_file_path = "xxxx-cccc-2222.deb",
         sha256 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         urls = ["https://example.com/xxxx-cccc-2222.deb"],
     )

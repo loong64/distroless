@@ -20,18 +20,17 @@ import (
 )
 
 func PackageIndexGroup(snapshots *config.Snapshots, arch config.Arch, distro config.Distro) []*PackageIndex {
-	// special casing for missing security distros
-	if (arch == config.PPC64LE || arch == config.S390X) && distro == config.DEBIAN10 {
-		return []*PackageIndex{
-			Main(snapshots.Debian, arch, distro),
-			Updates(snapshots.Debian, arch, distro),
+	var pkgIndexes []*PackageIndex
+	if snapshots.Debian != "" {
+		pkgIndexes = append(pkgIndexes, Main(snapshots.Debian, arch, distro))
+		if distro != config.UNSTABLE {
+			pkgIndexes = append(pkgIndexes, Updates(snapshots.Debian, arch, distro))
 		}
 	}
-	return []*PackageIndex{
-		Main(snapshots.Debian, arch, distro),
-		Updates(snapshots.Debian, arch, distro),
-		Security(snapshots.Security, arch, distro),
+	if snapshots.Security != "" && distro != config.UNSTABLE {
+		pkgIndexes = append(pkgIndexes, Security(snapshots.Security, arch, distro))
 	}
+	return pkgIndexes
 }
 
 type PackageIndex struct {
