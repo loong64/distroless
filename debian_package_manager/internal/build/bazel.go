@@ -28,13 +28,13 @@ import (
 )
 
 var archivesTemplate = `# AUTO GENERATED
-load("@distroless//private/remote:debian_archive.bzl", "debian_archive")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
 def repositories():
 {{- range $arch,$dm := . }}{{ range $distro,$pm := $dm }}{{ range $pn,$pi := $pm }}
-    debian_archive(
+    http_file(
         name = "{{ printf "%s_%s_" $arch $distro }}{{ bazelify $pi.Name }}",
-        package_name = "{{ $pi.Name }}",
+        downloaded_file_path = "{{ filename $pi.URL }}",
         sha256 = "{{ $pi.SHA256 }}",
         urls = ["{{ $pi.URL }}"],
     )

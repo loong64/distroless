@@ -22,8 +22,8 @@ import (
 )
 
 type Snapshots struct {
-	Debian   string
-	Security string
+	Debian   string `yaml:"debian"`
+	Security string `yaml:"security,omitempty"`
 }
 
 func LoadSnapshots(path string) (*Snapshots, error) {

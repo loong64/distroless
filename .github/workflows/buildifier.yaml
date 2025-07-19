@@ -1,29 +1,31 @@
-name: Buildifier
+name: buildifier
 
 on:
   pull_request:
     branches: [ 'main' ]
+  workflow_dispatch: # Allow manual runs.
+  push:
+    branches: [ 'main' ]
 
 jobs:
-
   autoformat:
     name: Auto-format and Check
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Go 1.15.x
-        uses: actions/setup-go@v3
+      - name: Set up Go 1.20.x
+        uses: actions/setup-go@v5
         with:
-          go-version: 1.15.x
+          go-version: 1.20.x
         id: go
 
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: |
           cd $(mktemp -d)
-          GO111MODULE=on go get github.com/bazelbuild/buildtools/buildifier@3.2.0
+          GO111MODULE=on go install github.com/bazelbuild/buildtools/buildifier@3.2.0
 
       - name: Run buildifier
         shell: bash
