@@ -1,1 +1,0 @@
-exports_files(["sign_and_push.sh.tpl"])
