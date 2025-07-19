@@ -1,34 +1,41 @@
-name: update-snapshots
+name: snapshots
 on:
+  workflow_dispatch: # Allow manual runs.
   # will send emails to last editor of this cron syntax (distroless-bot)
   schedule:
-    - cron:  '35 8 * * *'
+    - cron:  '0 0 1 * *'
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     permissions:
+      contents: write
       pull-requests: write
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
-        
+      uses: actions/checkout@v4
 
-    - name: Set up Go 1.16.x
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.16.x
+    - name: Set up Go
+      uses: actions/setup-go@v5
       id: go
+      with:
+        go-version: 'stable'
+        cache-dependency-path: debian_package_manager/go.sum
 
     - name: Run update script
       run: ./updateWorkspaceSnapshots.sh
     
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04 # v4.2.3
+      uses: peter-evans/create-pull-request@v7
       with:
-        token: ${{ secrets.ACTIONS_TOKEN }}
-        commit-message: "Bumping packages to latest stable versions"
-        author: "Distroless Bot <distroless-bot@google.com>"
-        title: "Bumping packages to latest stable versions"
-        body: "Bumping packages to latest stable versions"
-        branch: "update-snapshots"
+        author: GitHub <actions@github.com>
+        committer: GitHub <actions@github.com>
+        commit-message: 'feat: update packages'
+        branch: feat/update-packages
+        delete-branch: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: Update package snapshots
+        body: |
+          Update package snapshots
+        labels: |
+          dependencies

@@ -22,16 +22,23 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/build/config"
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/deb"
-	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/rhttp"
 	"github.com/pkg/errors"
 	"github.com/ulikunitz/xz"
 	"golang.org/x/sync/errgroup"
+
+	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/build/config"
+	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/deb"
+	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/rhttp"
 )
 
 func extractPackageInfo(snapshots *config.Snapshots, arch config.Arch, distro config.Distro, packages map[string]bool) (map[string]*deb.Package, []string, error) {
 	pkgGrp := deb.PackageIndexGroup(snapshots, arch, distro)
+	if len(pkgGrp) == 0 {
+		// No package index group for this arch/distro, probably there is no
+		// previous snapshot.
+		return map[string]*deb.Package{}, []string{}, nil
+	}
+
 	merged := map[string]*deb.Package{}
 	channels := []string{}
 	for _, pix := range pkgGrp {
@@ -99,7 +106,11 @@ func checkForUpdates(current *config.Snapshots, latest *config.Snapshots, pkgDB 
 			}
 			fmt.Print(".")
 			for _, l := range latestVersions {
-				c := currentVersions[l.Name]
+				c, ok := currentVersions[l.Name]
+				if !ok {
+					fmt.Printf("\nNew package %q: %q\n", l.Name, l.Version)
+					return true, nil
+				}
 				if !l.Equivalent(c) {
 					fmt.Printf("\nVersion changed for %q: %q -> %q\n", c.Name, c.Version, l.Version)
 					return true, nil

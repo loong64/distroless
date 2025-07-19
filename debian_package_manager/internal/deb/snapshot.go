@@ -21,27 +21,21 @@ import (
 	"regexp"
 	"time"
 
+	"github.com/pkg/errors"
+
 	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/build/config"
 	"github.com/GoogleContainerTools/distroless/debian_package_manager/internal/rhttp"
-	"github.com/pkg/errors"
 )
 
 func LatestSnapshot() (*config.Snapshots, error) {
-	snapshotURL := "https://snapshot.debian.org/archive/debian/?year=%d&month=%d"
-	s, err := latest(snapshotURL)
+	mainURL := "https://snapshot.debian.org/archive/debian-ports/?year=%d&month=%d"
+	sp, err := latest(mainURL)
 	if err != nil {
-		return nil, errors.Wrap(err, "calculating latest snapshot")
-	}
-
-	securitySnapshotURL := "https://snapshot.debian.org/archive/debian-security/?year=%d&month=%d"
-	ss, err := latest(securitySnapshotURL)
-	if err != nil {
-		return nil, errors.Wrap(err, "calculating latest security snapshot")
+		return nil, errors.Wrap(err, "calculating latest ports snapshot")
 	}
 
 	return &config.Snapshots{
-		Debian:   s,
-		Security: ss,
+		Debian: sp,
 	}, nil
 }
 
@@ -76,9 +70,12 @@ func latest(urltemplate string) (string, error) {
 }
 
 func Main(snapshot string, arch config.Arch, distro config.Distro) *PackageIndex {
+	if snapshot == "" {
+		panic("ports snapshot must be specified")
+	}
 	return &PackageIndex{
-		URL:      fmt.Sprintf("https://snapshot.debian.org/archive/debian/%s/dists/%s/main/binary-%s/Packages.xz", snapshot, distro.Codename(), arch.DebianName()),
-		PoolRoot: fmt.Sprintf("https://snapshot.debian.org/archive/debian/%s/", snapshot),
+		URL:      fmt.Sprintf("https://snapshot.debian.org/archive/debian-ports/%s/dists/%s/main/binary-%s/Packages.xz", snapshot, distro.Codename(), arch.DebianName()),
+		PoolRoot: fmt.Sprintf("https://snapshot.debian.org/archive/debian-ports/%s/", snapshot),
 		Snapshot: snapshot,
 		Distro:   distro,
 		Arch:     arch,
@@ -88,8 +85,8 @@ func Main(snapshot string, arch config.Arch, distro config.Distro) *PackageIndex
 
 func Updates(snapshot string, arch config.Arch, distro config.Distro) *PackageIndex {
 	return &PackageIndex{
-		URL:      fmt.Sprintf("https://snapshot.debian.org/archive/debian/%s/dists/%s-updates/main/binary-%s/Packages.xz", snapshot, distro.Codename(), arch.DebianName()),
-		PoolRoot: fmt.Sprintf("https://snapshot.debian.org/archive/debian/%s/", snapshot),
+		URL:      fmt.Sprintf("https://snapshot.debian.org/archive/debian-ports/%s/dists/%s-updates/main/binary-%s/Packages.xz", snapshot, distro.Codename(), arch.DebianName()),
+		PoolRoot: fmt.Sprintf("https://snapshot.debian.org/archive/debian-ports/%s/", snapshot),
 		Snapshot: snapshot,
 		Distro:   distro,
 		Arch:     arch,
@@ -98,12 +95,8 @@ func Updates(snapshot string, arch config.Arch, distro config.Distro) *PackageIn
 }
 
 func Security(snapshot string, arch config.Arch, distro config.Distro) *PackageIndex {
-	packageURL := fmt.Sprintf("https://snapshot.debian.org/archive/debian-security/%s/dists/%s-security/main/binary-%s/Packages.xz", snapshot, distro.Codename(), arch.DebianName())
-	if distro == config.DEBIAN10 { // the url changed after debian10
-		packageURL = fmt.Sprintf("https://snapshot.debian.org/archive/debian-security/%s/dists/%s/updates/main/binary-%s/Packages.xz", snapshot, distro.Codename(), arch.DebianName())
-	}
 	return &PackageIndex{
-		URL:      packageURL,
+		URL:      fmt.Sprintf("https://snapshot.debian.org/archive/debian-security/%s/dists/%s-security/main/binary-%s/Packages.xz", snapshot, distro.Codename(), arch.DebianName()),
 		PoolRoot: fmt.Sprintf("https://snapshot.debian.org/archive/debian-security/%s/", snapshot),
 		Snapshot: snapshot,
 		Distro:   distro,
