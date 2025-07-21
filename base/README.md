@@ -1,23 +1,23 @@
-# Documentation for `gcr.io/distroless/base`, `gcr.io/distroless/base-nossl` and `gcr.io/distroless/static`
+# Documentation for `gcr.io/loong64/base`, `gcr.io/loong64/base-nossl` and `gcr.io/loong64/static`
 
 ## Image Contents
 
 This image contains a minimal Linux, glibc-based system. It is intended for use directly by "mostly-statically compiled" languages like Go, Rust or D.
 
-Statically compiled applications (Go) that do not require libc can use the `gcr.io/distroless/static` image, which contains:
+Statically compiled applications (Go) that do not require libc can use the `gcr.io/loong64/static` image, which contains:
 
 * ca-certificates
 * A /etc/passwd entry for a root user
 * A /tmp directory
 * tzdata
 
-Applications that require libc but do not need libssl can use the `gcr.io/distroless/base-nossl`, which contains all
-of the packages in `gcr.io/distroless/static`, and
+Applications that require libc but do not need libssl can use the `gcr.io/loong64/base-nossl`, which contains all
+of the packages in `gcr.io/loong64/static`, and
 
 * glibc
 
-Most other applications (and Go apps that require libc/cgo) should start with `gcr.io/distroless/base`, which contains all
-of the packages in `gcr.io/distroless/static`, and 
+Most other applications (and Go apps that require libc/cgo) should start with `gcr.io/loong64/base`, which contains all
+of the packages in `gcr.io/loong64/static`, and 
 
 * glibc
 * libssl

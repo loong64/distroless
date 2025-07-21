@@ -27,9 +27,7 @@ function cmd_lock() {
     echo ""
     # temporarily hardcode right now (query doesn't work after bzl mod)
     local repos=$(cat <<EOL
-bookworm
-bookworm_java
-bookworm_python
+trixie
 EOL
 )
     #repos=$(bazel query "kind('deb_package_index', //external:*)" --output=label 2>/dev/null | cut -d: -f2)
@@ -187,10 +185,10 @@ function cmd_test () {
 }
 
 function cmd_deb_versions () {
-    echo "🔧 Printing .deb Versions (bookworm) from private/repos/deb/bookworm*.lock.json"
+    echo "🔧 Printing .deb Versions (trixie) from private/repos/deb/trixie*.lock.json"
     echo ""
 
-    jq -n '[inputs.packages[]] | group_by(.arch) | map({(.[0].arch): map({package: .name, version: .version})})' private/repos/deb/bookworm*.lock.json
+    jq -n '[inputs.packages[]] | group_by(.arch) | map({(.[0].arch): map({package: .name, version: .version})})' private/repos/deb/trixie*.lock.json
 }
 
 case "${1:-"~~nocmd"}" in

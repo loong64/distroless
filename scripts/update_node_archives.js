@@ -9,7 +9,7 @@ if (process.argv.length < 3) {
 }
 
 const versions = process.argv[2].split(",");
-const architectures = ["amd64", "arm64", "arm", "ppc64le", "s390x"];
+const architectures = ["loong64"];
 
 const nodeVersions = {};
 
@@ -46,7 +46,7 @@ const fetchChecksums = async () => {
                 } else if (key === "arm") {
                     arch = "armv7l";
                 }
-                const url = `https://nodejs.org/dist/v${nodeVersion}/node-v${nodeVersion}-linux-${arch}.tar.gz`;
+                const url = `https://github.com/loong64/node/releases/download/v${nodeVersion}/node-v${nodeVersion}-linux-${arch}.tar.gz`;
                 try {
                     const checksum = await calculateChecksum(url);
                     nodeVersions[nodeVersion][key] = {

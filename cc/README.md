@@ -1,4 +1,4 @@
-# Documentation for `gcr.io/distroless/cc`
+# Documentation for `gcr.io/loong64/cc`
 
 ## Image Contents
 

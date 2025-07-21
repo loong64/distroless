@@ -1,0 +1,26 @@
+# debian 13
+version: 1
+
+sources:
+  - channel: trixie main
+    url: https://snapshot.debian.org/archive/debian-ports/20250613T194320Z
+  - channel: trixie-security main
+    url: https://snapshot.debian.org/archive/debian-security/20250613T202933Z
+
+archs:
+  - loong64
+
+packages:
+  - base-files
+  - ca-certificates
+  - libc6
+  - libc-bin
+  - libssl3
+  - netbase
+  - openssl
+  - tzdata
+  # c++
+  - gcc-13-base
+  - libgcc-s1
+  - libgomp1
+  - libstdc++6

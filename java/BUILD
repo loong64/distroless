@@ -16,21 +16,15 @@ USERS = [
 ]
 
 JAVA_ARCHITECTURES = [
-    "amd64",
-    "arm64",
-    "s390x",
-    "ppc64le",
+    "loong64",
 ]
 
 JAVA_21_ARCHITECTURES = [
-    "amd64",
-    "arm64",
-    # "s390x", adoptium doesn't have a build yet
-    "ppc64le",
+    "loong64",
 ]
 
 JAVA_VERSIONS_PER_DISTRO = [
-    ("17", "debian12"),
+    ("17", "debian13"),
 ]
 
 [
@@ -61,7 +55,7 @@ JAVA_VERSIONS_PER_DISTRO = [
 ]
 
 # special case for java 21, we will start using temurin, the goal is to slowly transition all builds
-# to temurin, to also back support java 11 on debian12.
+# to temurin, to also back support java 11 on debian13.
 [
     pkg_tar(
         name = "temurin_jre_" + java_version + "_" + arch,
@@ -258,7 +252,7 @@ JAVA_VERSIONS_PER_DISTRO = [
         ],
     )
     for user in USERS
-    for java_version, distro in [("21", "debian12")]
+    for java_version, distro in [("21", "debian13")]
 ]
 
 [
@@ -280,7 +274,7 @@ JAVA_VERSIONS_PER_DISTRO = [
     )
     for arch in JAVA_21_ARCHITECTURES
     for user in USERS
-    for java_version, distro in [("21", "debian12")]
+    for java_version, distro in [("21", "debian13")]
 ]
 
 # Temurin Java 21 Debug
@@ -293,7 +287,7 @@ JAVA_VERSIONS_PER_DISTRO = [
         ],
     )
     for user in USERS
-    for java_version, distro in [("21", "debian12")]
+    for java_version, distro in [("21", "debian13")]
 ]
 
 [
@@ -315,7 +309,7 @@ JAVA_VERSIONS_PER_DISTRO = [
     )
     for user in USERS
     for arch in JAVA_21_ARCHITECTURES
-    for java_version, distro in [("21", "debian12")]
+    for java_version, distro in [("21", "debian13")]
 ]
 
 [
@@ -348,7 +342,7 @@ JAVA_VERSIONS_PER_DISTRO = [
         ],
     )
     for user in USERS
-    for java_version, distro in JAVA_VERSIONS_PER_DISTRO + [("21", "debian12")]
+    for java_version, distro in JAVA_VERSIONS_PER_DISTRO + [("21", "debian13")]
     for arch in (JAVA_ARCHITECTURES if java_version != "21" else JAVA_21_ARCHITECTURES)
 ]
 
@@ -363,15 +357,15 @@ JAVA_VERSIONS_PER_DISTRO = [
         ],
     )
     for user in USERS
-    for java_version, distro in JAVA_VERSIONS_PER_DISTRO + [("21", "debian12")]
+    for java_version, distro in JAVA_VERSIONS_PER_DISTRO + [("21", "debian13")]
     for arch in (JAVA_ARCHITECTURES if java_version != "21" else JAVA_21_ARCHITECTURES)
 ]
 
 RULE_NAMES = [
-    ("java17_root_debian12", "java17_root_amd64_debian12"),
-    ("java17_nonroot_debian12", "java17_nonroot_amd64_debian12"),
-    ("java21_root_debian12", "java21_root_amd64_debian12"),
-    ("java21_nonroot_debian12", "java21_nonroot_amd64_debian12"),
+    ("java17_root_debian13", "java17_root_amd64_debian13"),
+    ("java17_nonroot_debian13", "java17_nonroot_amd64_debian13"),
+    ("java21_root_debian13", "java21_root_amd64_debian13"),
+    ("java21_nonroot_debian13", "java21_nonroot_amd64_debian13"),
 ]
 
 [

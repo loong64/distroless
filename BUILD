@@ -5,7 +5,7 @@ load("//nodejs:node_arch.bzl", "node_arch")
 
 package(default_visibility = ["//visibility:public"])
 
-DEFAULT_DISTRO = "debian12"
+DEFAULT_DISTRO = "debian13"
 
 ## STATIC
 STATIC_VARIANTS = [
@@ -163,16 +163,16 @@ PYTHON3 |= {
     for (tag_base, label, user) in PYTHON3_VARIATIONS
 }
 
-# python on debian12 has moved out of experimental
+# python on debian13 has moved out of experimental
 PYTHON3 |= {
-    "{REGISTRY}/{PROJECT_ID}/python3-debian12:" + tag_base + "-" + arch: "//python3:" + label + "_" + user + "_" + arch + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/python3-debian13:" + tag_base + "-" + arch: "//python3:" + label + "_" + user + "_" + arch + "_debian13"
     for arch in BASE_ARCHITECTURES
     for (tag_base, label, user) in PYTHON3_VARIATIONS
 }
 
 # oci_image_index
 PYTHON3 |= {
-    "{REGISTRY}/{PROJECT_ID}/python3-debian12:" + tag_base: "//python3:" + label + "_" + user + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/python3-debian13:" + tag_base: "//python3:" + label + "_" + user + "_debian13"
     for (tag_base, label, user) in PYTHON3_VARIATIONS
 }
 
@@ -221,10 +221,7 @@ NODEJS |= {
 }
 
 ## JAVA_BASE
-JAVA_ARCHITECTURES = BASE_ARCHITECTURES + [
-    "s390x",
-    "ppc64le",
-]
+JAVA_ARCHITECTURES = BASE_ARCHITECTURES
 
 JAVA_VARIATIONS = [
     ("latest", "root"),
@@ -238,20 +235,20 @@ JAVA_BASE = {
     "{REGISTRY}/{PROJECT_ID}/java-base:nonroot": "//java:java_base_nonroot_amd64_" + DEFAULT_DISTRO,
     "{REGISTRY}/{PROJECT_ID}/java-base:debug": "//java:java_base_debug_root_amd64_" + DEFAULT_DISTRO,
     "{REGISTRY}/{PROJECT_ID}/java-base:debug-nonroot": "//java:java_base_debug_nonroot_amd64_" + DEFAULT_DISTRO,
-    "{REGISTRY}/{PROJECT_ID}/java-base-debian12:latest": "//java:java_base_root_amd64_debian12",
-    "{REGISTRY}/{PROJECT_ID}/java-base-debian12:nonroot": "//java:java_base_nonroot_amd64_debian12",
-    "{REGISTRY}/{PROJECT_ID}/java-base-debian12:debug": "//java:java_base_debug_root_amd64_debian12",
-    "{REGISTRY}/{PROJECT_ID}/java-base-debian12:debug-nonroot": "//java:java_base_debug_nonroot_amd64_debian12",
+    "{REGISTRY}/{PROJECT_ID}/java-base-debian13:latest": "//java:java_base_root_amd64_debian13",
+    "{REGISTRY}/{PROJECT_ID}/java-base-debian13:nonroot": "//java:java_base_nonroot_amd64_debian13",
+    "{REGISTRY}/{PROJECT_ID}/java-base-debian13:debug": "//java:java_base_debug_root_amd64_debian13",
+    "{REGISTRY}/{PROJECT_ID}/java-base-debian13:debug-nonroot": "//java:java_base_debug_nonroot_amd64_debian13",
 }
 
 JAVA_BASE |= {
-    "{REGISTRY}/{PROJECT_ID}/java-base-debian12:" + tag_base + "-" + arch: "//java:java_base_" + label + "_" + arch + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/java-base-debian13:" + tag_base + "-" + arch: "//java:java_base_" + label + "_" + arch + "_debian13"
     for arch in JAVA_ARCHITECTURES
     for (tag_base, label) in JAVA_VARIATIONS
 }
 
 JAVA_BASE |= {
-    "{REGISTRY}/{PROJECT_ID}/java-base-debian12:" + tag_base: "//java:java_base_" + label + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/java-base-debian13:" + tag_base: "//java:java_base_" + label + "_debian13"
     for (tag_base, label) in JAVA_VARIATIONS
 }
 
@@ -261,20 +258,20 @@ JAVA17 = {
     "{REGISTRY}/{PROJECT_ID}/java17:nonroot": "//java:java17_nonroot_amd64_" + DEFAULT_DISTRO,
     "{REGISTRY}/{PROJECT_ID}/java17:debug": "//java:java17_debug_root_amd64_" + DEFAULT_DISTRO,
     "{REGISTRY}/{PROJECT_ID}/java17:debug-nonroot": "//java:java17_debug_nonroot_amd64_" + DEFAULT_DISTRO,
-    "{REGISTRY}/{PROJECT_ID}/java17-debian12:latest": "//java:java17_root_amd64_debian12",
-    "{REGISTRY}/{PROJECT_ID}/java17-debian12:nonroot": "//java:java17_nonroot_amd64_debian12",
-    "{REGISTRY}/{PROJECT_ID}/java17-debian12:debug": "//java:java17_debug_root_amd64_debian12",
-    "{REGISTRY}/{PROJECT_ID}/java17-debian12:debug-nonroot": "//java:java17_debug_nonroot_amd64_debian12",
+    "{REGISTRY}/{PROJECT_ID}/java17-debian13:latest": "//java:java17_root_amd64_debian13",
+    "{REGISTRY}/{PROJECT_ID}/java17-debian13:nonroot": "//java:java17_nonroot_amd64_debian13",
+    "{REGISTRY}/{PROJECT_ID}/java17-debian13:debug": "//java:java17_debug_root_amd64_debian13",
+    "{REGISTRY}/{PROJECT_ID}/java17-debian13:debug-nonroot": "//java:java17_debug_nonroot_amd64_debian13",
 }
 
 JAVA17 |= {
-    "{REGISTRY}/{PROJECT_ID}/java17-debian12:" + tag_base + "-" + arch: "//java:java17_" + label + "_" + arch + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/java17-debian13:" + tag_base + "-" + arch: "//java:java17_" + label + "_" + arch + "_debian13"
     for (tag_base, label) in JAVA_VARIATIONS
     for arch in JAVA_ARCHITECTURES
 }
 
 JAVA17 |= {
-    "{REGISTRY}/{PROJECT_ID}/java17-debian12:" + tag_base: "//java:java17_" + label + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/java17-debian13:" + tag_base: "//java:java17_" + label + "_debian13"
     for (tag_base, label) in JAVA_VARIATIONS
 }
 
@@ -286,7 +283,7 @@ JAVA_21_ARCHITECTURES = [
 ]
 
 JAVA21 = {
-    "{REGISTRY}/{PROJECT_ID}/java21-debian12:" + tag_base + "-" + arch: "//java:java21_" + label + "_" + arch + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/java21-debian13:" + tag_base + "-" + arch: "//java:java21_" + label + "_" + arch + "_debian13"
     for (tag_base, label) in JAVA_VARIATIONS
     for arch in JAVA_21_ARCHITECTURES
 }
@@ -298,7 +295,7 @@ JAVA21 |= {
 }
 
 JAVA21 |= {
-    "{REGISTRY}/{PROJECT_ID}/java21-debian12:" + tag_base: "//java:java21_" + label + "_debian12"
+    "{REGISTRY}/{PROJECT_ID}/java21-debian13:" + tag_base: "//java:java21_" + label + "_debian13"
     for (tag_base, label) in JAVA_VARIATIONS
 }
 

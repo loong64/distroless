@@ -12,8 +12,8 @@ pkg_tar(
 
 # This example runs a python program that walks the filesystem under "/etc" and prints every filename.
 oci_image(
-    name = "hello_debian12",
-    base = "//python3:python3_root_amd64_debian12",
+    name = "hello_debian13",
+    base = "//python3:python3_root_amd64_debian13",
     cmd = [
         "hello.py",
         "/etc",

@@ -2,7 +2,7 @@ Distroless currently tracks Debian on their [standard support timeline](https://
 
 The current estimation of end of life for images with the pattern:
 
-`gcr.io/distroless/<image>-debian<version>:(latest|nonroot|debug|debug-nonroot)`
+`gcr.io/loong64/<image>-debian<version>:(latest|nonroot|debug|debug-nonroot)`
 
 | Image       | Debian 12 EOL               |
 | ----------- | --------------------------- |

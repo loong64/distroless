@@ -3,20 +3,16 @@
 load("@versions//:versions.bzl", "version")
 
 DIST_ALIAS = dict(
-    # bullseye (deprecated)
-    debian11 = "bullseye",
-    bullseye = "debian11",
-    # bookworm
-    debian12 = "bookworm",
-    bookworm = "debian12",
+    debian13 = "trixie",
+    debian13 = "unstable",
+    trixie = "debian13",
+    trixie = "unstable",
+    unstable = "debian13",
+    unstable = "triexie",
 )
 
 ARCH_ALIAS = dict(
-    arm = "armhf",
-    ppc64le = "ppc64el",
-    arm64 = "arm64",
-    amd64 = "amd64",
-    s390x = "s390x",
+    loong64 = "loong64",
 )
 
 def _get_dist_arch_alias(arch, dist):

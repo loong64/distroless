@@ -2,16 +2,13 @@
 version: 1
 
 sources:
-  - channel: bookworm main
-    url: https://snapshot.debian.org/archive/debian/20250613T202933Z
-  - channel: bookworm-updates main
-    url: https://snapshot.debian.org/archive/debian/20250613T202933Z
-  - channel: bookworm-security main
+  - channel: trixie main
+    url: https://snapshot.debian.org/archive/debian-ports/20250613T194320Z
+  - channel: trixie-security main
     url: https://snapshot.debian.org/archive/debian-security/20250613T202933Z
 
 archs:
-  - amd64
-  - arm64
+  - loong64
 
 packages:
   - dash
@@ -29,14 +26,14 @@ packages:
   - liblzma5
   - libncursesw6
   - libnsl2
-  - libpython3.11-minimal
-  - libpython3.11-stdlib
+  - libpython3.12-minimal
+  - libpython3.12-stdlib
   - libreadline8
   - libsqlite3-0
   - libtinfo6
   - libtirpc3
   - libuuid1
-  - python3-distutils
-  - python3.11-minimal
+  - python3-setuptools
+  - python3.12-minimal
   - zlib1g
   - libc-bin

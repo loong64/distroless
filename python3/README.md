@@ -1,4 +1,4 @@
-# Documentation for `gcr.io/distroless/python3`
+# Documentation for `gcr.io/loong64/python3`
 
 ## Image Contents
 

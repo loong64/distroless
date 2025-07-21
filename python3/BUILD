@@ -12,11 +12,11 @@ USERS = [
 ]
 
 DISTROS = [
-    "debian12",
+    "debian13",
 ]
 
 DISTRO_VERSION = {
-    "debian12": "3.11",
+    "debian13": "3.11",
 }
 
 [

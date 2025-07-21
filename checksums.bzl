@@ -1,10 +1,9 @@
-BASE_ARCHITECTURES = ["amd64", "arm64"]
+BASE_ARCHITECTURES = ["loong64"]
 
-ARCHITECTURES = BASE_ARCHITECTURES + ["arm", "s390x", "ppc64le"]
+ARCHITECTURES = BASE_ARCHITECTURES
 
 VERSIONS = [
-    ("debian11", "bullseye", "11"),  # deprecated
-    ("debian12", "bookworm", "12"),
+    ("debian13", "trixie", "13"),
 ]
 
 VARIANTS = {
