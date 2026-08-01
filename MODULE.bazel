@@ -5,13 +5,20 @@ module(name = "distroless")
 bazel_dep(name = "bazel_skylib", version = "1.8.2")
 bazel_dep(name = "aspect_bazel_lib", version = "2.21.1")
 bazel_dep(name = "rules_pkg", version = "1.1.0")
-bazel_dep(name = "platforms", version = "1.0.0")
-bazel_dep(name = "rules_go", version = "0.57.0")
+bazel_dep(name = "platforms", version = "1.1.0")
+bazel_dep(name = "rules_go", version = "0.61.0")
 bazel_dep(name = "gazelle", version = "0.38.0")
 bazel_dep(name = "rules_rust", version = "0.63.0")
 bazel_dep(name = "container_structure_test", version = "1.19.1")
 bazel_dep(name = "rules_oci", version = "2.2.7")
 bazel_dep(name = "rules_distroless", version = "0.8.0")
+single_version_override(
+    module_name = "rules_distroless",
+    patch_strip = 1,
+    patches = ["//private/patches:rules_distroless_loong64.patch"],
+    version = "0.8.0",
+)
+
 bazel_dep(name = "rules_python", version = "1.5.3")
 bazel_dep(name = "rules_cc", version = "0.2.4")
 bazel_dep(name = "gawk", version = "5.3.2.bcr.5")
@@ -41,14 +48,14 @@ use_repo(go_deps, "com_github_spdx_tools_golang")
 ### BUSYBOX ###
 busybox = use_extension("//private/extensions:busybox.bzl", "busybox")
 busybox.archive()
-use_repo(busybox, "busybox_amd64", "busybox_arm", "busybox_arm64", "busybox_ppc64le", "busybox_riscv64", "busybox_s390x")
+use_repo(busybox, "busybox_amd64", "busybox_arm", "busybox_arm64", "busybox_loong64", "busybox_ppc64le", "busybox_riscv64", "busybox_s390x")
 
 ### JAVA ###
 
 ### NODE ###
 node = use_extension("//private/extensions:node.bzl", "node")
 node.archive()
-use_repo(node, "node_versions", "nodejs22_amd64", "nodejs22_arm", "nodejs22_arm64", "nodejs22_ppc64le", "nodejs22_s390x", "nodejs24_amd64", "nodejs24_arm64", "nodejs24_ppc64le", "nodejs24_s390x", "nodejs26_amd64", "nodejs26_arm64", "nodejs26_ppc64le", "nodejs26_s390x")
+use_repo(node, "node_versions", "nodejs22_amd64", "nodejs22_arm", "nodejs22_arm64", "nodejs22_loong64", "nodejs22_ppc64le", "nodejs22_s390x", "nodejs24_amd64", "nodejs24_arm64", "nodejs24_loong64", "nodejs24_ppc64le", "nodejs24_s390x", "nodejs26_amd64", "nodejs26_arm64", "nodejs26_loong64", "nodejs26_ppc64le", "nodejs26_s390x")
 
 ### DEBIAN ###
 include("//private/repos/deb:deb.MODULE.bazel")

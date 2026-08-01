@@ -1,6 +1,6 @@
 PYTHON_DISTROS = ["debian13"]
 PYTHON_ARCHITECTURES = {
-    "debian13": ["amd64", "arm64", "riscv64"],
+    "debian13": ["amd64", "arm64", "riscv64", "loong64"],
 }
 
 PYTHON_PACKAGES = {
