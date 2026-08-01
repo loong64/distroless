@@ -1,0 +1,40 @@
+# debian 13, loong64 only, python packages
+version: 1
+
+sources:
+  - channel: trixie main
+    url: https://mirrors.loong64.com/debian
+  - channel: trixie-updates main
+    url: https://mirrors.loong64.com/debian
+  - channel: trixie-security main
+    url: https://mirrors.loong64.com/debian-security
+
+archs:
+  - loong64
+
+packages:
+  - libbz2-1.0
+  - libcom-err2
+  - libcrypt1
+  - libdb5.3t64
+  - libexpat1
+  - libc-bin
+  - libffi8
+  - libgssapi-krb5-2
+  - libk5crypto3
+  - libkeyutils1
+  - libkrb5-3
+  - libkrb5support0
+  - liblzma5
+  - libncursesw6
+  - libnsl2
+  - libpython3.13-minimal
+  - libpython3.13-stdlib
+  - libreadline8t64
+  - libsqlite3-0
+  - libtinfo6
+  - libtirpc3t64
+  - libuuid1
+  - python3.13-venv
+  - python3.13-minimal
+  - zlib1g

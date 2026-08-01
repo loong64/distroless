@@ -14,7 +14,7 @@ and other tech giants that have used containers in production for many years.
 It improves the signal to noise of scanners (e.g. CVE) and reduces the burden of establishing provenance to just what you need.
 
 Distroless images are _very small_.
-The smallest distroless image, `gcr.io/distroless/static-debian13`, is around 2 MiB.
+The smallest distroless image, `ghcr.io/loong64/distroless/static-debian13`, is around 2 MiB.
 That's about 50% of the size of `alpine` (~5 MiB), and less than 2% of the size of `debian` (124 MiB).
 
 ## How do I use distroless images?
@@ -25,7 +25,7 @@ These images are built using [bazel](https://bazel.build), but they can also be 
 
 The following images are currently published and updated by the distroless project (see [SUPPORT_POLICY.md](SUPPORT_POLICY.md) for support timelines)
 
-These images refer to image indexes with references to all supported architectures. Architecture specific images can be directly referenced using an additional architecture suffix on the tag, like `gcr.io/distroless/static-debian13:latest-amd64`
+These images refer to image indexes with references to all supported architectures. Architecture specific images can be directly referenced using an additional architecture suffix on the tag, like `ghcr.io/loong64/distroless/static-debian13:latest-amd64`
 
 Any other tags are considered deprecated and are no longer updated
 
@@ -33,29 +33,29 @@ Any other tags are considered deprecated and are no longer updated
 
 Debian 13 distroless images use the debian [UsrMerge](https://wiki.debian.org/UsrMerge) scheme. If you use `rules_distroless` to add packages to an image, set `mergedusr = True` in [`apt.install`](https://registry.bazel.build/docs/rules_distroless#apt_install).
 
-| Image                                 | Tags                                  | Architecture Suffixes                      |
-| ------------------------------------- | ------------------------------------- | ------------------------------------------ |
-| gcr.io/distroless/static-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64 |
-| gcr.io/distroless/base-debian13       | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64 |
-| gcr.io/distroless/base-nossl-debian13 | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64 |
-| gcr.io/distroless/cc-debian13         | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64 |
-| gcr.io/distroless/java-base-debian13  | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64      |
-| gcr.io/distroless/java17-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64      |
-| gcr.io/distroless/java21-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64      |
-| gcr.io/distroless/java25-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64      |
-| gcr.io/distroless/nodejs22-debian13   | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le          |
-| gcr.io/distroless/nodejs24-debian13   | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le               |
-| gcr.io/distroless/nodejs26-debian13   | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le               |
-| gcr.io/distroless/python3-debian13    | latest, nonroot, debug, debug-nonroot | amd64, arm64, riscv64                      |
+| Image                                          | Tags                                  | Architecture Suffixes                               |
+| ---------------------------------------------- | ------------------------------------- | --------------------------------------------------- |
+| ghcr.io/loong64/distroless/static-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64, loong64 |
+| ghcr.io/loong64/distroless/base-debian13       | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64, loong64 |
+| ghcr.io/loong64/distroless/base-nossl-debian13 | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64, loong64 |
+| ghcr.io/loong64/distroless/cc-debian13         | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le, riscv64, loong64 |
+| ghcr.io/loong64/distroless/java-base-debian13  | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64               |
+| ghcr.io/loong64/distroless/java17-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64               |
+| ghcr.io/loong64/distroless/java21-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64               |
+| ghcr.io/loong64/distroless/java25-debian13     | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le, riscv64               |
+| ghcr.io/loong64/distroless/nodejs22-debian13   | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le                   |
+| ghcr.io/loong64/distroless/nodejs24-debian13   | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le                        |
+| ghcr.io/loong64/distroless/nodejs26-debian13   | latest, nonroot, debug, debug-nonroot | amd64, arm64, s390x, ppc64le                        |
+| ghcr.io/loong64/distroless/python3-debian13    | latest, nonroot, debug, debug-nonroot | amd64, arm64, riscv64, loong64                      |
 
 #### Debian 12
 
 | Image                                 | Tags                                  | Architecture Suffixes             |
 | ------------------------------------- | ------------------------------------- | --------------------------------- |
-| gcr.io/distroless/static-debian12     | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
-| gcr.io/distroless/base-debian12       | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
-| gcr.io/distroless/base-nossl-debian12 | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
-| gcr.io/distroless/cc-debian12         | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
+| ghcr.io/loong64/distroless/static-debian12     | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
+| ghcr.io/loong64/distroless/base-debian12       | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
+| ghcr.io/loong64/distroless/base-nossl-debian12 | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
+| ghcr.io/loong64/distroless/cc-debian12         | latest, nonroot, debug, debug-nonroot | amd64, arm64, arm, s390x, ppc64le |
 
 ## Why is distroless still using `gcr.io` instead of `pkg.dev`?
 
@@ -116,7 +116,7 @@ RUN go mod download
 RUN CGO_ENABLED=0 go build -o /go/bin/app
 
 # Now copy it into our base image.
-FROM gcr.io/distroless/static-debian13
+FROM ghcr.io/loong64/distroless/static-debian13
 COPY --from=build /go/bin/app /
 CMD ["/app"]
 ```
@@ -193,7 +193,7 @@ cd examples/python3/
 edit the `Dockerfile` to change the final image to `:debug`:
 
 ```dockerfile
-FROM gcr.io/distroless/python3-debian13:debug
+FROM ghcr.io/loong64/distroless/python3-debian13:debug
 COPY . /app
 WORKDIR /app
 CMD ["hello.py", "/etc"]
@@ -212,7 +212,7 @@ $ docker run --entrypoint=sh -ti my_debug_image
 BUILD       Dockerfile  hello.py
 ```
 
-> Note: If the image you are using already has a tag, for example `gcr.io/distroless/java17-debian13:nonroot`, use the tag `debug-<existing tag>` instead, for example `gcr.io/distroless/java17-debian13:debug-nonroot`.
+> Note: If the image you are using already has a tag, for example `ghcr.io/loong64/distroless/java17-debian13:nonroot`, use the tag `debug-<existing tag>` instead, for example `ghcr.io/loong64/distroless/java17-debian13:debug-nonroot`.
 
 > Note: [ldd](http://man7.org/linux/man-pages/man1/ldd.1.html) is not installed in the base image as it's a shell script, you can copy it in or download it.
 
