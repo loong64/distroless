@@ -1,0 +1,280 @@
+{
+	"packages": [
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libbz2-1.0_1.0.8-6_loong64",
+			"name": "libbz2-1.0",
+			"sha256": "f87d04ffa4da7fa7e99bf6475b68b2490ee84677426854e3621da069465e4961",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/b/bzip2/libbz2-1.0_1.0.8-6_loong64.deb"
+			],
+			"version": "1.0.8-6"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libcom-err2_1.47.2-3-p-b11_loong64",
+			"name": "libcom-err2",
+			"sha256": "1e0553642434418f282f83685009b78e8bc2ec2a494584bf6ec6edbe283c7bba",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/e/e2fsprogs/libcom-err2_1.47.2-3+b11_loong64.deb"
+			],
+			"version": "1.47.2-3+b11"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libcrypt1_1-4.4.38-1_loong64",
+			"name": "libcrypt1",
+			"sha256": "4d6bac52cef5cf1f200762f4c8863939dc9d9a6bde93be8e9ee869c4b01ffad2",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/libx/libxcrypt/libcrypt1_4.4.38-1_loong64.deb"
+			],
+			"version": "1:4.4.38-1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libdb5.3t64_5.3.28-p-dfsg2-9_loong64",
+			"name": "libdb5.3t64",
+			"sha256": "7cffab86c0066dcd53434303dbea45b424aa440fe44ae08a2f1a88a61f21e3d8",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/d/db5.3/libdb5.3t64_5.3.28+dfsg2-9_loong64.deb"
+			],
+			"version": "5.3.28+dfsg2-9"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libexpat1_2.8.2-1_deb13u1_loong64",
+			"name": "libexpat1",
+			"sha256": "8688cd1e27516b3a7b8455bb51e077f2c177b3715aea8cc5289ac4e0208ef5a2",
+			"urls": [
+				"https://mirrors.loong64.com/debian-security/pool/main/e/expat/libexpat1_2.8.2-1~deb13u1_loong64.deb"
+			],
+			"version": "2.8.2-1~deb13u1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libc-bin_2.41-12-p-deb13u3_loong64",
+			"name": "libc-bin",
+			"sha256": "fe03603fc01adcdd79687cf72023830fb365f847b7b17b07ca996820a4a2089c",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/g/glibc/libc-bin_2.41-12+deb13u3_loong64.deb"
+			],
+			"version": "2.41-12+deb13u3"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libffi8_3.4.8-2_loong64",
+			"name": "libffi8",
+			"sha256": "11ebb152e1628299c4808241233177f81d5cfe8d439a838b65db6ed28e2db9b2",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/libf/libffi/libffi8_3.4.8-2_loong64.deb"
+			],
+			"version": "3.4.8-2"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libgssapi-krb5-2_1.21.3-5-p-deb13u1_loong64",
+			"name": "libgssapi-krb5-2",
+			"sha256": "38d41f94edd5bedd0a9e7168e9399aa247d5a94ac1ab17930fca6b291e5aad60",
+			"urls": [
+				"https://mirrors.loong64.com/debian-security/pool/main/k/krb5/libgssapi-krb5-2_1.21.3-5+deb13u1_loong64.deb"
+			],
+			"version": "1.21.3-5+deb13u1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libk5crypto3_1.21.3-5-p-deb13u1_loong64",
+			"name": "libk5crypto3",
+			"sha256": "a111a223826ad46faca7eeef4fb080731e20fd9ae49f3a889b6d9cd61d8de489",
+			"urls": [
+				"https://mirrors.loong64.com/debian-security/pool/main/k/krb5/libk5crypto3_1.21.3-5+deb13u1_loong64.deb"
+			],
+			"version": "1.21.3-5+deb13u1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libkeyutils1_1.6.3-6_loong64",
+			"name": "libkeyutils1",
+			"sha256": "519faffe83a164988e1277d15f1ea79cb06b224e7d8c9554bc2876539c63b89c",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/k/keyutils/libkeyutils1_1.6.3-6_loong64.deb"
+			],
+			"version": "1.6.3-6"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libkrb5-3_1.21.3-5-p-deb13u1_loong64",
+			"name": "libkrb5-3",
+			"sha256": "e87959b132a396bf92a56d5e1e2a412ee65f65d867828878292a3d69d849798d",
+			"urls": [
+				"https://mirrors.loong64.com/debian-security/pool/main/k/krb5/libkrb5-3_1.21.3-5+deb13u1_loong64.deb"
+			],
+			"version": "1.21.3-5+deb13u1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libkrb5support0_1.21.3-5-p-deb13u1_loong64",
+			"name": "libkrb5support0",
+			"sha256": "ae661c13072bb8a5ba1aec927f5cab3f08ca3cb1e701254ad98f06e93359671e",
+			"urls": [
+				"https://mirrors.loong64.com/debian-security/pool/main/k/krb5/libkrb5support0_1.21.3-5+deb13u1_loong64.deb"
+			],
+			"version": "1.21.3-5+deb13u1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "liblzma5_5.8.1-1-p-deb13u1_loong64",
+			"name": "liblzma5",
+			"sha256": "5eb3c05e1856cdcc94a844f50de04a3b481114ee3ed678a48243cf3f59007b51",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/x/xz-utils/liblzma5_5.8.1-1+deb13u1_loong64.deb"
+			],
+			"version": "5.8.1-1+deb13u1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libncursesw6_6.5-p-20250216-2_loong64",
+			"name": "libncursesw6",
+			"sha256": "50e53595b3a56ad24ca9da0c495bbb855d641385d730040431e107c7f8c7fed5",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/n/ncurses/libncursesw6_6.5+20250216-2_loong64.deb"
+			],
+			"version": "6.5+20250216-2"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libnsl2_1.3.0-3-p-b3_loong64",
+			"name": "libnsl2",
+			"sha256": "b5208f6ae93f13401927ff275ad9b5019a7eeac9c706aea8a033f466b6feb0bc",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/libn/libnsl/libnsl2_1.3.0-3+b3_loong64.deb"
+			],
+			"version": "1.3.0-3+b3"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libpython3.13-minimal_3.13.5-2-p-deb13u4_loong64",
+			"name": "libpython3.13-minimal",
+			"sha256": "6f76027bce949e9af604600f3772928780d3c7753d5172df230fb8085eee1b55",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u4_loong64.deb"
+			],
+			"version": "3.13.5-2+deb13u4"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libpython3.13-stdlib_3.13.5-2-p-deb13u4_loong64",
+			"name": "libpython3.13-stdlib",
+			"sha256": "587fdb5a7343784ab0b5618b64d81a16b158b2131b895907d2e9fa00feeb1762",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u4_loong64.deb"
+			],
+			"version": "3.13.5-2+deb13u4"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libreadline8t64_8.2-6_loong64",
+			"name": "libreadline8t64",
+			"sha256": "7336067282c8a178a74d7e0ff1bc81cd7ba2c1ce5a4ed3da87a1bf3780b1517f",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/r/readline/libreadline8t64_8.2-6_loong64.deb"
+			],
+			"version": "8.2-6"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libsqlite3-0_3.46.1-7-p-deb13u1_loong64",
+			"name": "libsqlite3-0",
+			"sha256": "5aaa7a26c5d78527b0052bd1fa0ec738d5de3c194988a334218250aad52f6cc3",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/s/sqlite3/libsqlite3-0_3.46.1-7+deb13u1_loong64.deb"
+			],
+			"version": "3.46.1-7+deb13u1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libtinfo6_6.5-p-20250216-2_loong64",
+			"name": "libtinfo6",
+			"sha256": "9fa060d45f58841a398afd1e47a456b16d786e81f90b26dcf789423f72378dc6",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/n/ncurses/libtinfo6_6.5+20250216-2_loong64.deb"
+			],
+			"version": "6.5+20250216-2"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libtirpc3t64_1.3.6-p-ds-1_loong64",
+			"name": "libtirpc3t64",
+			"sha256": "3e838b998bb0414befef849d4cf36a2f54b924d985fc798f79b3f7df9035fba7",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/libt/libtirpc/libtirpc3t64_1.3.6+ds-1_loong64.deb"
+			],
+			"version": "1.3.6+ds-1"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "libuuid1_2.41-5_loong64",
+			"name": "libuuid1",
+			"sha256": "e1837a8d4b491717e97ac275035e069405b097e41a4e39ace9655df5c5995a3a",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/u/util-linux/libuuid1_2.41-5_loong64.deb"
+			],
+			"version": "2.41-5"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "python3.13-venv_3.13.5-2-p-deb13u4_loong64",
+			"name": "python3.13-venv",
+			"sha256": "a8b1eedabfba4d37fb1b03fbf69a604c12c5e7cb781bc5bfffafc1b1023f1a6f",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/python3.13-venv_3.13.5-2+deb13u4_loong64.deb"
+			],
+			"version": "3.13.5-2+deb13u4"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "python3.13-minimal_3.13.5-2-p-deb13u4_loong64",
+			"name": "python3.13-minimal",
+			"sha256": "c9e5b308201f16c00a86058053c325082a8b4a56e82dcbda555ff548b16ecb62",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u4_loong64.deb"
+			],
+			"version": "3.13.5-2+deb13u4"
+		},
+		{
+			"arch": "loong64",
+			"dependencies": [],
+			"key": "zlib1g_1-1.3.dfsg-p-really1.3.1-1-p-b1_loong64",
+			"name": "zlib1g",
+			"sha256": "179591493a4fffab0e23082e3259e920d95ab63e358e94a1e2a9029e97dda70b",
+			"urls": [
+				"https://mirrors.loong64.com/debian/pool/main/z/zlib/zlib1g_1.3.dfsg+really1.3.1-1+b1_loong64.deb"
+			],
+			"version": "1:1.3.dfsg+really1.3.1-1+b1"
+		}
+	],
+	"version": 1
+}

@@ -1,0 +1,9 @@
+diff --git a/apt/private/deb_translate_lock.bzl b/apt/private/deb_translate_lock.bzl
+--- a/apt/private/deb_translate_lock.bzl
++++ b/apt/private/deb_translate_lock.bzl
+@@ -71,4 +71,5 @@ _ARCHITECTURE_MAP = {{
+     "armhf": "armv7e-mf",
+     "riscv64": "riscv64",
++    "loong64": "loongarch64",
+     "all": "all",
+ }}
