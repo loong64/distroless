@@ -9,7 +9,7 @@ if (process.argv.length < 3) {
 }
 
 const versions = process.argv[2].split(",");
-const architectures = ["amd64", "arm64", "arm", "ppc64le", "s390x"];
+const architectures = ["amd64", "arm64", "arm", "ppc64le", "s390x", "loong64"];
 
 const nodeVersions = {};
 
@@ -17,6 +17,12 @@ const calculateChecksum = (url) => {
   return new Promise((resolve, reject) => {
     https
       .get(url, (res) => {
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          res.resume();
+          return calculateChecksum(
+            new URL(res.headers.location, url).toString()
+          ).then(resolve, reject);
+        }
         const hash = crypto.createHash("sha256");
         res.on("data", (data) => {
           hash.update(data);
@@ -46,7 +52,11 @@ const fetchChecksums = async () => {
         } else if (key === "arm") {
           arch = "armv7l";
         }
-        const url = `https://nodejs.org/dist/v${nodeVersion}/node-v${nodeVersion}-linux-${arch}.tar.gz`;
+        const releaseBase =
+          key === "loong64"
+            ? "https://github.com/loong64/node/releases/download"
+            : "https://nodejs.org/dist";
+        const url = `${releaseBase}/v${nodeVersion}/node-v${nodeVersion}-linux-${arch}.tar.gz`;
         try {
           const checksum = await calculateChecksum(url);
           nodeVersions[nodeVersion][key] = {
@@ -189,7 +199,11 @@ def _node_impl(module_ctx):
         continue;
       }
       const arch = nodeVersions[nodeVersion][key];
-      const url = `https://nodejs.org/dist/v${nodeVersion}/node-v${nodeVersion}-linux-${arch.suffix}.tar.gz`;
+      const releaseBase =
+        key === "loong64"
+          ? "https://github.com/loong64/node/releases/download"
+          : "https://nodejs.org/dist";
+      const url = `${releaseBase}/v${nodeVersion}/node-v${nodeVersion}-linux-${arch.suffix}.tar.gz`;
 
       nodeArchives += "\n";
       nodeArchives += `

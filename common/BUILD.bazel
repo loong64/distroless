@@ -23,6 +23,7 @@ COMMON_ARCHITECTURES = {
         "s390x",
         "ppc64le",
         "riscv64",
+        "loong64",
     ],
 }
 

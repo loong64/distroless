@@ -168,6 +168,16 @@ def _node_impl(module_ctx):
     )
 
     node_archive(
+        name = "nodejs22_loong64",
+        sha256 = "44533ea11a8ded9dd5d1dde1b81b0e68541d8cf376648870414a316f20eda0ce",
+        strip_prefix = "node-v22.23.1-linux-loong64/",
+        urls = ["https://github.com/loong64/node/releases/download/v22.23.1/node-v22.23.1-linux-loong64.tar.gz"],
+        version = "22.23.1",
+        architecture = "loong64",
+        control = "//nodejs:control",
+    )
+
+    node_archive(
         name = "nodejs24_amd64",
         sha256 = "783130984963db7ba9cbd01089eaf2c2efb055c7c1693c943174b967b3050cb8",
         strip_prefix = "node-v24.18.0-linux-x64/",
@@ -204,6 +214,16 @@ def _node_impl(module_ctx):
         urls = ["https://nodejs.org/dist/v24.18.0/node-v24.18.0-linux-s390x.tar.gz"],
         version = "24.18.0",
         architecture = "s390x",
+        control = "//nodejs:control",
+    )
+
+    node_archive(
+        name = "nodejs24_loong64",
+        sha256 = "b7305fd9b4f6351651c6812fbcc61327cc1762f0144187e4d9976201ec8b9451",
+        strip_prefix = "node-v24.18.0-linux-loong64/",
+        urls = ["https://github.com/loong64/node/releases/download/v24.18.0/node-v24.18.0-linux-loong64.tar.gz"],
+        version = "24.18.0",
+        architecture = "loong64",
         control = "//nodejs:control",
     )
 
@@ -247,6 +267,16 @@ def _node_impl(module_ctx):
         control = "//nodejs:control",
     )
 
+    node_archive(
+        name = "nodejs26_loong64",
+        sha256 = "00bc307689d8151a1ba5edbafb19fdabea0a593111b541c822f4f3456f879b14",
+        strip_prefix = "node-v26.5.0-linux-loong64/",
+        urls = ["https://github.com/loong64/node/releases/download/v26.5.0/node-v26.5.0-linux-loong64.tar.gz"],
+        version = "26.5.0",
+        architecture = "loong64",
+        control = "//nodejs:control",
+    )
+
     node_versions_repo(
         name = "node_versions",
         versions = {
@@ -255,14 +285,17 @@ def _node_impl(module_ctx):
             "22_arm": "22.23.1",
             "22_ppc64le": "22.23.1",
             "22_s390x": "22.23.1",
+            "22_loong64": "22.23.1",
             "24_amd64": "24.18.0",
             "24_arm64": "24.18.0",
             "24_ppc64le": "24.18.0",
             "24_s390x": "24.18.0",
+            "24_loong64": "24.18.0",
             "26_amd64": "26.5.0",
             "26_arm64": "26.5.0",
             "26_ppc64le": "26.5.0",
             "26_s390x": "26.5.0",
+            "26_loong64": "26.5.0",
         },
     )
 
@@ -274,14 +307,17 @@ def _node_impl(module_ctx):
             "nodejs22_arm",
             "nodejs22_ppc64le",
             "nodejs22_s390x",
+            "nodejs22_loong64",
             "nodejs24_amd64",
             "nodejs24_arm64",
             "nodejs24_ppc64le",
             "nodejs24_s390x",
+            "nodejs24_loong64",
             "nodejs26_amd64",
             "nodejs26_arm64",
             "nodejs26_ppc64le",
             "nodejs26_s390x",
+            "nodejs26_loong64",
         ],
         root_module_direct_dev_deps = [],
     )
