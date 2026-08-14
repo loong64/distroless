@@ -234,13 +234,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libuuid1_2.41-5_loong64",
+			"key": "libuuid1_2.41.5-0-p-deb13u1_loong64",
 			"name": "libuuid1",
-			"sha256": "e1837a8d4b491717e97ac275035e069405b097e41a4e39ace9655df5c5995a3a",
+			"sha256": "c34c12b47b0ce2c9ffe7ecb0a66699683d0c9188778edf6a3e54854e7e80808f",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/u/util-linux/libuuid1_2.41-5_loong64.deb"
+				"https://mirrors.loong64.com/debian-security/pool/main/u/util-linux/libuuid1_2.41.5-0+deb13u1_loong64.deb"
 			],
-			"version": "2.41-5"
+			"version": "2.41.5-0+deb13u1"
 		},
 		{
 			"arch": "loong64",
