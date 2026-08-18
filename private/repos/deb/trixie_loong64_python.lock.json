@@ -47,13 +47,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libexpat1_2.8.2-1_deb13u1_loong64",
+			"key": "libexpat1_2.8.3-1_deb13u1_loong64",
 			"name": "libexpat1",
-			"sha256": "8688cd1e27516b3a7b8455bb51e077f2c177b3715aea8cc5289ac4e0208ef5a2",
+			"sha256": "4630c330f8b41cbe41cf7bef0edf496200b541441bc5ac7312d9da2d55392007",
 			"urls": [
-				"https://mirrors.loong64.com/debian-security/pool/main/e/expat/libexpat1_2.8.2-1~deb13u1_loong64.deb"
+				"https://mirrors.loong64.com/debian-security/pool/main/e/expat/libexpat1_2.8.3-1~deb13u1_loong64.deb"
 			],
-			"version": "2.8.2-1~deb13u1"
+			"version": "2.8.3-1~deb13u1"
 		},
 		{
 			"arch": "loong64",
