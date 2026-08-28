@@ -269,7 +269,7 @@ def _node_impl(module_ctx):
 
     node_archive(
         name = "nodejs26_loong64",
-        sha256 = "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5",
+        sha256 = "e374d59b15fb6023ac973225489b16253dc91d1b3a47cde432218cde5e5f7991",
         strip_prefix = "node-v26.8.1-linux-loong64/",
         urls = ["https://github.com/loong64/node/releases/download/v26.8.1/node-v26.8.1-linux-loong64.tar.gz"],
         version = "26.8.1",
