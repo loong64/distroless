@@ -2,6 +2,9 @@
 const crypto = require("crypto");
 const https = require("https");
 const fs = require("fs");
+const os = require("os");
+const path = require("path");
+const { execFileSync } = require("child_process");
 
 if (process.argv.length < 3) {
   console.error("Usage: node nodeChecksum.js <nodejs_version>");
@@ -9,65 +12,126 @@ if (process.argv.length < 3) {
 }
 
 const versions = process.argv[2].split(",");
-const architectures = ["amd64", "arm64", "arm", "ppc64le", "s390x", "loong64"];
+const architectures = ["amd64", "arm64", "arm", "ppc64le", "s390x"];
 
 const nodeVersions = {};
 
-const calculateChecksum = (url) => {
+// Committed Node.js release public keys (active keys only), generated from
+// https://github.com/nodejs/release-keys by knife.d/update_node_keys.sh.
+const NODE_KEYS_FILE = path.join(__dirname, "nodejs_keys.asc");
+
+/**
+ * Import the committed Node.js release public keys into an isolated temporary
+ * keyring. No network access - keys come from the in-repo file.
+ * Caller is responsible for deleting the returned GNUPGHOME.
+ */
+const importReleaseKeys = () => {
+  const tmpHome = fs.mkdtempSync(path.join(os.tmpdir(), "gpg-distroless-"));
+  fs.chmodSync(tmpHome, 0o700);
+  const env = { ...process.env, GNUPGHOME: tmpHome };
+  execFileSync("gpg", ["--batch", "--import", NODE_KEYS_FILE], { stdio: "pipe", env });
+  return tmpHome;
+};
+
+/**
+ * Fetch a URL and return the response body as a string.
+ */
+const fetchText = (url) => {
   return new Promise((resolve, reject) => {
     https
       .get(url, (res) => {
-        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-          res.resume();
-          return calculateChecksum(
-            new URL(res.headers.location, url).toString()
-          ).then(resolve, reject);
-        }
-        const hash = crypto.createHash("sha256");
-        res.on("data", (data) => {
-          hash.update(data);
+        let body = "";
+        res.on("data", (chunk) => {
+          body += chunk;
         });
         res.on("end", () => {
-          resolve(hash.digest("hex"));
+          resolve(body);
         });
       })
       .on("error", (err) => {
-        reject(`Error downloading file: ${err.message}`);
+        reject(`Error fetching ${url}: ${err.message}`);
       });
   });
 };
 
+/**
+ * Download SHASUMS256.txt and its detached GPG signature for the given Node.js
+ * version, verify the signature against the imported release keys, and return
+ * a map of { filename → sha256 }.
+ *
+ * Throws if GPG verification fails — no checksums are returned in that case.
+ */
+const fetchVerifiedShasums = async (nodeVersion, gpgHome) => {
+  const base = `https://nodejs.org/dist/v${nodeVersion}`;
+
+  // SHASUMS256.txt.asc is an inline (clear-signed) document: it contains the
+  // checksums and their signature together. Verify the signature AND read the
+  // authenticated checksums from gpg's output, so we never trust an unsigned,
+  // separately-downloaded SHASUMS256.txt.
+  const shasumsAsc = await fetchText(`${base}/SHASUMS256.txt.asc`);
+
+  const tmpDir = fs.mkdtempSync(
+    path.join(os.tmpdir(), `node-shasums-${nodeVersion}-`)
+  );
+  const ascFile = path.join(tmpDir, "SHASUMS256.txt.asc");
+  let verifiedShasums;
+  try {
+    fs.writeFileSync(ascFile, shasumsAsc);
+    const env = { ...process.env, GNUPGHOME: gpgHome };
+    // `gpg --decrypt` on a clear-signed file verifies the signature (non-zero
+    // exit on failure) and writes the signed plaintext to stdout.
+    verifiedShasums = execFileSync("gpg", ["--output", "-", "--decrypt", ascFile], {
+      env,
+    }).toString();
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true });
+  }
+
+  // Parse "sha256hex  filename" lines from the GPG-verified output.
+  const checksums = {};
+  for (const line of verifiedShasums.split("\n")) {
+    const parts = line.trim().split(/\s+/);
+    if (parts.length === 2) {
+      checksums[parts[1]] = parts[0];
+    }
+  }
+  return checksums;
+};
+
 const fetchChecksums = async () => {
-  for (const nodeVersion of versions) {
-    const major = parseInt(nodeVersion.split(".")[0]);
-    nodeVersions[nodeVersion] = {};
-    await Promise.all(
-      architectures.map(async (key) => {
+  // Import Node.js release GPG keys once into an isolated keyring.
+  const gpgHome = importReleaseKeys();
+  try {
+    for (const nodeVersion of versions) {
+      const major = parseInt(nodeVersion.split(".")[0]);
+      nodeVersions[nodeVersion] = {};
+
+      // Fetch and GPG-verify the official SHASUMS before trusting any checksum.
+      const shasums = await fetchVerifiedShasums(nodeVersion, gpgHome);
+
+      for (const key of architectures) {
         let arch = key;
         if (major > 22 && key === "arm") {
-          return;
+          continue;
         }
         if (key === "amd64") {
           arch = "x64";
         } else if (key === "arm") {
           arch = "armv7l";
         }
-        const releaseBase =
-          key === "loong64"
-            ? "https://github.com/loong64/node/releases/download"
-            : "https://nodejs.org/dist";
-        const url = `${releaseBase}/v${nodeVersion}/node-v${nodeVersion}-linux-${arch}.tar.gz`;
-        try {
-          const checksum = await calculateChecksum(url);
-          nodeVersions[nodeVersion][key] = {
-            checksum,
-            suffix: arch,
-          };
-        } catch (error) {
-          console.error(error);
+        const filename = `node-v${nodeVersion}-linux-${arch}.tar.gz`;
+        const checksum = shasums[filename];
+        if (!checksum) {
+          throw new Error(
+            `No checksum found for ${filename} in verified SHASUMS256.txt`
+          );
         }
-      })
-    );
+        nodeVersions[nodeVersion][key] = { checksum, suffix: arch };
+      }
+    }
+  } finally {
+    // Always clean up the temporary GPG home directory.
+    fs.rmSync(gpgHome, { recursive: true });
   }
 };
 
@@ -76,7 +140,7 @@ fetchChecksums().then(() => {
 
 BUILD_TMPL = """\\
 # GENERATED BY node_archive.bzl
-load("@distroless//private/pkg:debian_spdx.bzl", "debian_spdx")
+load("@distroless//private/pkg:package_spdx.bzl", "package_spdx")
 load("@distroless//private/util:merge_providers.bzl", "merge_providers")
 load("@distroless//private/util:tar.bzl", "tar")
 
@@ -93,20 +157,18 @@ tar(
     strip_prefix = "external/{canonical_name}/output"
 )
 
-tar(
-    name = "_control",
-    extension = "tar.gz",
-    srcs = ["control"]
-)
-
-debian_spdx(
+package_spdx(
     name = "spdx",
-    control = ":_control",
-    data = ":data",
     package_name = "{package_name}",
+    version = "{version}",
+    purl = "{purl}",
     spdx_id = "{spdx_id}",
     sha256 = "{sha256}",
-    urls = [{urls}]
+    urls = [{urls}],
+    copyright = "output/LICENSE",
+    homepage = "https://nodejs.org",
+    supplier = "Organization: OpenJS Foundation <https://openjsf.org/>",
+    description = "Node.js event-based server-side javascript engine",
 )
 
 merge_providers(
@@ -125,21 +187,19 @@ def _impl(rctx):
         stripPrefix = rctx.attr.strip_prefix,
         output = "output",
     )
-    rctx.template(
-        "control",
-        rctx.attr.control,
-        substitutions = {
-            "{{VERSION}}": rctx.attr.version,
-            "{{ARCHITECTURE}}": rctx.attr.architecture,
-            "{{SHA256}}": rctx.attr.sha256,
-        },
+    purl = "pkg:generic/{package_name}@{version}?download_url={url}".format(
+        package_name = rctx.attr.package_name,
+        version = rctx.attr.version,
+        url = rctx.attr.urls[0],
     )
     rctx.file(
         "BUILD.bazel",
         content = BUILD_TMPL.format(
             canonical_name = rctx.attr.name,
-            name = rctx.attr.name.split("~")[-1],
+            name = rctx.attr.name.split("+")[-1],
             package_name = rctx.attr.package_name,
+            version = rctx.attr.version,
+            purl = purl,
             spdx_id = rctx.attr.name,
             urls = ",".join(['"%s"' % url for url in rctx.attr.urls]),
             sha256 = rctx.attr.sha256,
@@ -156,9 +216,6 @@ node_archive = repository_rule(
         "package_name": attr.string(default = "nodejs"),
         "version": attr.string(mandatory = True),
         "architecture": attr.string(mandatory = True),
-        # control is only used to populate the sbom, see https://github.com/GoogleContainerTools/distroless/issues/1373
-        # for why writing debian control files to the image is incompatible with scanners.
-        "control": attr.label(),
     },
 )
 
@@ -199,11 +256,7 @@ def _node_impl(module_ctx):
         continue;
       }
       const arch = nodeVersions[nodeVersion][key];
-      const releaseBase =
-        key === "loong64"
-          ? "https://github.com/loong64/node/releases/download"
-          : "https://nodejs.org/dist";
-      const url = `${releaseBase}/v${nodeVersion}/node-v${nodeVersion}-linux-${arch.suffix}.tar.gz`;
+      const url = `https://nodejs.org/dist/v${nodeVersion}/node-v${nodeVersion}-linux-${arch.suffix}.tar.gz`;
 
       nodeArchives += "\n";
       nodeArchives += `
@@ -214,7 +267,6 @@ def _node_impl(module_ctx):
         urls = ["${url}"],
         version = "${nodeVersion}",
         architecture = "${key}",
-        control = "//nodejs:control",
     )`;
     }
 
