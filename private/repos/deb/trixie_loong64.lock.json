@@ -3,13 +3,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "base-files_13.8-p-deb13u6_loong64",
+			"key": "base-files_13.8-p-deb13u7_loong64",
 			"name": "base-files",
-			"sha256": "c3012693f09ead5b663c647753690b4471a3498fc8e0ee40be946eed0f29176f",
+			"sha256": "bcc0a9bbbebba313ce4770abba6ebe5acddb9e56fb83bb12cf5a91487b985725",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/b/base-files/base-files_13.8+deb13u6_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/b/base-files/base-files_13.8+deb13u7_loong64.deb"
 			],
-			"version": "13.8+deb13u6"
+			"version": "13.8+deb13u7"
 		},
 		{
 			"arch": "loong64",
@@ -25,24 +25,24 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libc6_2.41-12-p-deb13u3_loong64",
+			"key": "libc6_2.41-12-p-deb13u4_loong64",
 			"name": "libc6",
-			"sha256": "c1d0642bdfed17abb2ea72a7d5aaeeb89f73fa7617d06c48608bbfffec7df75a",
+			"sha256": "4aa322a903e489859fb5335a89ad629d13ecf7ea06e95efa2d491b5cf0330731",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/g/glibc/libc6_2.41-12+deb13u3_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/g/glibc/libc6_2.41-12+deb13u4_loong64.deb"
 			],
-			"version": "2.41-12+deb13u3"
+			"version": "2.41-12+deb13u4"
 		},
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libc-bin_2.41-12-p-deb13u3_loong64",
+			"key": "libc-bin_2.41-12-p-deb13u4_loong64",
 			"name": "libc-bin",
-			"sha256": "fe03603fc01adcdd79687cf72023830fb365f847b7b17b07ca996820a4a2089c",
+			"sha256": "6f1760a59fbf60cf6ae54e6abf407e78638e6f2eebfefe88cf0e32ff8f3f17c3",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/g/glibc/libc-bin_2.41-12+deb13u3_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/g/glibc/libc-bin_2.41-12+deb13u4_loong64.deb"
 			],
-			"version": "2.41-12+deb13u3"
+			"version": "2.41-12+deb13u4"
 		},
 		{
 			"arch": "loong64",
@@ -80,24 +80,24 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "tzdata_2026b-0-p-deb13u1_loong64",
+			"key": "tzdata_2026c-0-p-deb13u1_loong64",
 			"name": "tzdata",
-			"sha256": "306013b77311e875620e89f43c447765a6c72b7b398e0baa8e5721bcbbdf66cf",
+			"sha256": "813b9bbbe14ccda2b24617b8bade0ade4d745957e75921766c153d249886bd4c",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata_2026b-0+deb13u1_all.deb"
+				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata_2026c-0+deb13u1_all.deb"
 			],
-			"version": "2026b-0+deb13u1"
+			"version": "2026c-0+deb13u1"
 		},
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "tzdata-legacy_2026b-0-p-deb13u1_loong64",
+			"key": "tzdata-legacy_2026c-0-p-deb13u1_loong64",
 			"name": "tzdata-legacy",
-			"sha256": "d72ff6ab14a3a698f2f50f4eff7b11c6e004fc02b3083139639a3b41f7f7ebf1",
+			"sha256": "2779c2f5e9582fb501c592ec44d1d4421e0add97d25631926673be817a221028",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata-legacy_2026b-0+deb13u1_all.deb"
+				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata-legacy_2026c-0+deb13u1_all.deb"
 			],
-			"version": "2026b-0+deb13u1"
+			"version": "2026c-0+deb13u1"
 		},
 		{
 			"arch": "loong64",

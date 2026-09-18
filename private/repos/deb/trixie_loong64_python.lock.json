@@ -14,13 +14,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libcom-err2_1.47.2-3-p-b11_loong64",
+			"key": "libcom-err2_1.47.2-3-p-b12_loong64",
 			"name": "libcom-err2",
-			"sha256": "1e0553642434418f282f83685009b78e8bc2ec2a494584bf6ec6edbe283c7bba",
+			"sha256": "e576061e67d992a335368b2b8f95c262816a6fc943650259ab3fd4752dfd5b7d",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/e/e2fsprogs/libcom-err2_1.47.2-3+b11_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/e/e2fsprogs/libcom-err2_1.47.2-3+b12_loong64.deb"
 			],
-			"version": "1.47.2-3+b11"
+			"version": "1.47.2-3+b12"
 		},
 		{
 			"arch": "loong64",
@@ -58,13 +58,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libc-bin_2.41-12-p-deb13u3_loong64",
+			"key": "libc-bin_2.41-12-p-deb13u4_loong64",
 			"name": "libc-bin",
-			"sha256": "fe03603fc01adcdd79687cf72023830fb365f847b7b17b07ca996820a4a2089c",
+			"sha256": "6f1760a59fbf60cf6ae54e6abf407e78638e6f2eebfefe88cf0e32ff8f3f17c3",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/g/glibc/libc-bin_2.41-12+deb13u3_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/g/glibc/libc-bin_2.41-12+deb13u4_loong64.deb"
 			],
-			"version": "2.41-12+deb13u3"
+			"version": "2.41-12+deb13u4"
 		},
 		{
 			"arch": "loong64",
@@ -168,24 +168,24 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libpython3.13-minimal_3.13.5-2-p-deb13u4_loong64",
+			"key": "libpython3.13-minimal_3.13.5-2-p-deb13u5_loong64",
 			"name": "libpython3.13-minimal",
-			"sha256": "6f76027bce949e9af604600f3772928780d3c7753d5172df230fb8085eee1b55",
+			"sha256": "68729e7423fb4b28d859913d52287418ae364472d68a68ed6f64fd2af409e16c",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u4_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u5_loong64.deb"
 			],
-			"version": "3.13.5-2+deb13u4"
+			"version": "3.13.5-2+deb13u5"
 		},
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libpython3.13-stdlib_3.13.5-2-p-deb13u4_loong64",
+			"key": "libpython3.13-stdlib_3.13.5-2-p-deb13u5_loong64",
 			"name": "libpython3.13-stdlib",
-			"sha256": "587fdb5a7343784ab0b5618b64d81a16b158b2131b895907d2e9fa00feeb1762",
+			"sha256": "38546cbfac1bdff53653eeb2547c8ac7734d24d21c46b550822061658c832774",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u4_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u5_loong64.deb"
 			],
-			"version": "3.13.5-2+deb13u4"
+			"version": "3.13.5-2+deb13u5"
 		},
 		{
 			"arch": "loong64",
@@ -201,13 +201,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libsqlite3-0_3.46.1-7-p-deb13u1_loong64",
+			"key": "libsqlite3-0_3.46.1-7-p-deb13u2_loong64",
 			"name": "libsqlite3-0",
-			"sha256": "5aaa7a26c5d78527b0052bd1fa0ec738d5de3c194988a334218250aad52f6cc3",
+			"sha256": "898977faa27b441795b8f934fa955acbeda9216fea0e096956c2e15859d22b34",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/s/sqlite3/libsqlite3-0_3.46.1-7+deb13u1_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/s/sqlite3/libsqlite3-0_3.46.1-7+deb13u2_loong64.deb"
 			],
-			"version": "3.46.1-7+deb13u1"
+			"version": "3.46.1-7+deb13u2"
 		},
 		{
 			"arch": "loong64",
@@ -245,24 +245,24 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "python3.13-venv_3.13.5-2-p-deb13u4_loong64",
+			"key": "python3.13-venv_3.13.5-2-p-deb13u5_loong64",
 			"name": "python3.13-venv",
-			"sha256": "a8b1eedabfba4d37fb1b03fbf69a604c12c5e7cb781bc5bfffafc1b1023f1a6f",
+			"sha256": "49c070fa0be9dc3b87d6ed25e7c34d8bfb725fd2168efbb0fb6737e9d7489969",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/python3.13-venv_3.13.5-2+deb13u4_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/python3.13-venv_3.13.5-2+deb13u5_loong64.deb"
 			],
-			"version": "3.13.5-2+deb13u4"
+			"version": "3.13.5-2+deb13u5"
 		},
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "python3.13-minimal_3.13.5-2-p-deb13u4_loong64",
+			"key": "python3.13-minimal_3.13.5-2-p-deb13u5_loong64",
 			"name": "python3.13-minimal",
-			"sha256": "c9e5b308201f16c00a86058053c325082a8b4a56e82dcbda555ff548b16ecb62",
+			"sha256": "9703f2387742c5fd1d15c7ed2893327db80d2f05426fef26399e1078d79554c3",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u4_loong64.deb"
+				"https://mirrors.loong64.com/debian/pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u5_loong64.deb"
 			],
-			"version": "3.13.5-2+deb13u4"
+			"version": "3.13.5-2+deb13u5"
 		},
 		{
 			"arch": "loong64",
