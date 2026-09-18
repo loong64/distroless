@@ -18,6 +18,7 @@ single_version_override(
     patches = ["//private/patches:rules_distroless_loong64.patch"],
     version = "0.8.0",
 )
+
 bazel_dep(name = "rules_python", version = "1.5.3")
 bazel_dep(name = "rules_cc", version = "0.2.4")
 bazel_dep(name = "gawk", version = "5.3.2.bcr.5")
@@ -26,7 +27,6 @@ bazel_dep(name = "gawk", version = "5.3.2.bcr.5")
 # Note: rules_oci registers crane toolchains in its MODULE.bazel
 # We import the repos to use crane in sign_and_push rule
 oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
-use_repo(oci, "oci_crane_toolchains")
 
 cosign = use_extension("//private/extensions:cosign.bzl", "cosign")
 use_repo(cosign, "oci_cosign_toolchains")
