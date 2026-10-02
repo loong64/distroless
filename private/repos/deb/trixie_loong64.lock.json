@@ -47,13 +47,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "libssl3t64_3.5.7-1_deb13u2_loong64",
+			"key": "libssl3t64_3.5.7-1_deb13u3_loong64",
 			"name": "libssl3t64",
-			"sha256": "6c5c742ae3afe07a6d2045ab348af14018a92c89ed0dbd0706ad9365a6e74973",
+			"sha256": "f9dc0cc10147eb7f7d502190ab24cf84bcb9147dd6ca61a3fd0e2efb9f4e8fa6",
 			"urls": [
-				"https://mirrors.loong64.com/debian-security/pool/main/o/openssl/libssl3t64_3.5.7-1~deb13u2_loong64.deb"
+				"https://mirrors.loong64.com/debian-security/pool/main/o/openssl/libssl3t64_3.5.7-1~deb13u3_loong64.deb"
 			],
-			"version": "3.5.7-1~deb13u2"
+			"version": "3.5.7-1~deb13u3"
 		},
 		{
 			"arch": "loong64",
@@ -69,13 +69,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "openssl_3.5.7-1_deb13u2_loong64",
+			"key": "openssl_3.5.7-1_deb13u3_loong64",
 			"name": "openssl",
-			"sha256": "bf31c84de905af2f066617b7b762a6b0244ae0f39e726893eabff83071dfd7d0",
+			"sha256": "9bdc7f4be0fa62e6839696cb6113d79a97507f0147b300eb6b5bf9af0cb783c4",
 			"urls": [
-				"https://mirrors.loong64.com/debian-security/pool/main/o/openssl/openssl_3.5.7-1~deb13u2_loong64.deb"
+				"https://mirrors.loong64.com/debian-security/pool/main/o/openssl/openssl_3.5.7-1~deb13u3_loong64.deb"
 			],
-			"version": "3.5.7-1~deb13u2"
+			"version": "3.5.7-1~deb13u3"
 		},
 		{
 			"arch": "loong64",
