@@ -449,7 +449,7 @@
     },
     "//private/extensions:node.bzl%node": {
       "general": {
-        "bzlTransitiveDigest": "0DXDsE1ZdqWvh9CglXVQJK3ij4/NH7KQSKjbzjOhUq8=",
+        "bzlTransitiveDigest": "1+ElQKr5EZW3Fgc6gPO/CwXVaNhcq3qK7/mFEwEcvsg=",
         "usagesDigest": "QA21U3gPZPiUX9/vsZR3d8yh8Tqq7lovQjkvOeh/XkA=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
@@ -458,72 +458,72 @@
           "nodejs22_amd64": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "b294a556e639d64338823920e5866c21c02741742d2e1529ee1a225c1ec9252a",
-              "strip_prefix": "node-v22.23.2-linux-x64/",
+              "sha256": "1084aa36196bba4c3a5e69a1ee388a6e4ff729dad09445fbcd434b28fe3c24af",
+              "strip_prefix": "node-v22.23.3-linux-x64/",
               "urls": [
-                "https://nodejs.org/dist/v22.23.2/node-v22.23.2-linux-x64.tar.gz"
+                "https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-x64.tar.gz"
               ],
-              "version": "22.23.2",
+              "version": "22.23.3",
               "architecture": "amd64"
             }
           },
           "nodejs22_arm64": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "013b59cfd2819703a6f4a14ab891fc46fc2a4e3f5bcd92de3fb4929b43e35b30",
-              "strip_prefix": "node-v22.23.2-linux-arm64/",
+              "sha256": "5ced2d48d1d7198739b7f86804de0171aefb6823b684b12341d3321afc3cb0b2",
+              "strip_prefix": "node-v22.23.3-linux-arm64/",
               "urls": [
-                "https://nodejs.org/dist/v22.23.2/node-v22.23.2-linux-arm64.tar.gz"
+                "https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-arm64.tar.gz"
               ],
-              "version": "22.23.2",
+              "version": "22.23.3",
               "architecture": "arm64"
             }
           },
           "nodejs22_arm": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "2a2f59eb8fd9dec27b3bee17c729131d1fd3e6d9943d479f1156ce38af8cd599",
-              "strip_prefix": "node-v22.23.2-linux-armv7l/",
+              "sha256": "8b99058ec6f4e372b9887f8ecb577a292adb132d59e5104356428a758fdb126c",
+              "strip_prefix": "node-v22.23.3-linux-armv7l/",
               "urls": [
-                "https://nodejs.org/dist/v22.23.2/node-v22.23.2-linux-armv7l.tar.gz"
+                "https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-armv7l.tar.gz"
               ],
-              "version": "22.23.2",
+              "version": "22.23.3",
               "architecture": "arm"
             }
           },
           "nodejs22_ppc64le": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "65c8aa9e647196f30d3564bb6b201306b1b520f72f0dd3278da326014a018379",
-              "strip_prefix": "node-v22.23.2-linux-ppc64le/",
+              "sha256": "236712ddef73f56c0e0590a2c49f69c8393a2c2d82c3d62c7c165605b472b38d",
+              "strip_prefix": "node-v22.23.3-linux-ppc64le/",
               "urls": [
-                "https://nodejs.org/dist/v22.23.2/node-v22.23.2-linux-ppc64le.tar.gz"
+                "https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-ppc64le.tar.gz"
               ],
-              "version": "22.23.2",
+              "version": "22.23.3",
               "architecture": "ppc64le"
             }
           },
           "nodejs22_s390x": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "986b8441b1d1a01c70ed710bab201741fd0d196d302a7e4338fefd5e1c10e61e",
-              "strip_prefix": "node-v22.23.2-linux-s390x/",
+              "sha256": "51f64794f5f61bdfc80aa186c8273021473997605cf90ed31ed148bee650a554",
+              "strip_prefix": "node-v22.23.3-linux-s390x/",
               "urls": [
-                "https://nodejs.org/dist/v22.23.2/node-v22.23.2-linux-s390x.tar.gz"
+                "https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-s390x.tar.gz"
               ],
-              "version": "22.23.2",
+              "version": "22.23.3",
               "architecture": "s390x"
             }
           },
           "nodejs22_loong64": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "90b51d0fc899d5422a80f9abeaa361043b3c8e3c4b9c18e8afc29631dc63f830",
-              "strip_prefix": "node-v22.23.2-linux-loong64/",
+              "sha256": "f3a4e58bfea28ca7e94e2854dfc2b54ad0d38c50fcea61e30f833a4ef2bd78c0",
+              "strip_prefix": "node-v22.23.3-linux-loong64/",
               "urls": [
-                "https://github.com/loong64/node/releases/download/v22.23.2/node-v22.23.2-linux-loong64.tar.gz"
+                "https://github.com/loong64/node/releases/download/v22.23.3/node-v22.23.3-linux-loong64.tar.gz"
               ],
-              "version": "22.23.2",
+              "version": "22.23.3",
               "architecture": "loong64"
             }
           },
@@ -590,60 +590,60 @@
           "nodejs26_amd64": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "03d9104fc4f19652e74480fed11c023d75981464b7292f21a601c3f95ce7d90d",
-              "strip_prefix": "node-v26.9.0-linux-x64/",
+              "sha256": "2dcdf1a51a055e3ac1027ce5a01c2409ec7fa016b99e25e58a939568a9e0b6ad",
+              "strip_prefix": "node-v26.11.0-linux-x64/",
               "urls": [
-                "https://nodejs.org/dist/v26.9.0/node-v26.9.0-linux-x64.tar.gz"
+                "https://nodejs.org/dist/v26.11.0/node-v26.11.0-linux-x64.tar.gz"
               ],
-              "version": "26.9.0",
+              "version": "26.11.0",
               "architecture": "amd64"
             }
           },
           "nodejs26_arm64": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "d5077591aa38b48d90bf9b3ac10da8d2f40dce289b20294913c58c19f153eb12",
-              "strip_prefix": "node-v26.9.0-linux-arm64/",
+              "sha256": "990bbeaf592bfae995def6c5b43b89bb5ddd222305c91251e3b9d9bfc7c120bc",
+              "strip_prefix": "node-v26.11.0-linux-arm64/",
               "urls": [
-                "https://nodejs.org/dist/v26.9.0/node-v26.9.0-linux-arm64.tar.gz"
+                "https://nodejs.org/dist/v26.11.0/node-v26.11.0-linux-arm64.tar.gz"
               ],
-              "version": "26.9.0",
+              "version": "26.11.0",
               "architecture": "arm64"
             }
           },
           "nodejs26_ppc64le": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "3914ce13acf24880cceb34a6967206de2f8caa0fef93f142a0ddb14c36328f35",
-              "strip_prefix": "node-v26.9.0-linux-ppc64le/",
+              "sha256": "e142924db4aa9815627fdb3028b9c592c814acf4fe3523e4e8b10ddcbe2123a8",
+              "strip_prefix": "node-v26.11.0-linux-ppc64le/",
               "urls": [
-                "https://nodejs.org/dist/v26.9.0/node-v26.9.0-linux-ppc64le.tar.gz"
+                "https://nodejs.org/dist/v26.11.0/node-v26.11.0-linux-ppc64le.tar.gz"
               ],
-              "version": "26.9.0",
+              "version": "26.11.0",
               "architecture": "ppc64le"
             }
           },
           "nodejs26_s390x": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "c5386ff8968eadf66dd79209355b38c01ee712c6cfd32b92bbcc9cc4dc4de0fd",
-              "strip_prefix": "node-v26.9.0-linux-s390x/",
+              "sha256": "d9e84f29547f6d3071e0c81de9f85dd7b1d311ea0e0bd20f3c39a9e4411c13f2",
+              "strip_prefix": "node-v26.11.0-linux-s390x/",
               "urls": [
-                "https://nodejs.org/dist/v26.9.0/node-v26.9.0-linux-s390x.tar.gz"
+                "https://nodejs.org/dist/v26.11.0/node-v26.11.0-linux-s390x.tar.gz"
               ],
-              "version": "26.9.0",
+              "version": "26.11.0",
               "architecture": "s390x"
             }
           },
           "nodejs26_loong64": {
             "repoRuleId": "@@//private/extensions:node.bzl%node_archive",
             "attributes": {
-              "sha256": "5e9ee8c0172f749aaa24d2efe85a59108e3da3da499b73ddea6b86c32b0780f4",
-              "strip_prefix": "node-v26.9.0-linux-loong64/",
+              "sha256": "20442bb5294c7e7b49fafc297c4aca7bf528ebb06a47fc41a5176e22a736a4cf",
+              "strip_prefix": "node-v26.11.0-linux-loong64/",
               "urls": [
-                "https://github.com/loong64/node/releases/download/v26.9.0/node-v26.9.0-linux-loong64.tar.gz"
+                "https://github.com/loong64/node/releases/download/v26.11.0/node-v26.11.0-linux-loong64.tar.gz"
               ],
-              "version": "26.9.0",
+              "version": "26.11.0",
               "architecture": "loong64"
             }
           },
@@ -651,22 +651,22 @@
             "repoRuleId": "@@//private/extensions:node.bzl%node_versions_repo",
             "attributes": {
               "versions": {
-                "22_amd64": "22.23.2",
-                "22_arm64": "22.23.2",
-                "22_arm": "22.23.2",
-                "22_ppc64le": "22.23.2",
-                "22_s390x": "22.23.2",
-                "22_loong64": "22.23.2",
+                "22_amd64": "22.23.3",
+                "22_arm64": "22.23.3",
+                "22_arm": "22.23.3",
+                "22_ppc64le": "22.23.3",
+                "22_s390x": "22.23.3",
+                "22_loong64": "22.23.3",
                 "24_amd64": "24.21.0",
                 "24_arm64": "24.21.0",
                 "24_ppc64le": "24.21.0",
                 "24_s390x": "24.21.0",
                 "24_loong64": "24.21.0",
-                "26_amd64": "26.9.0",
-                "26_arm64": "26.9.0",
-                "26_ppc64le": "26.9.0",
-                "26_s390x": "26.9.0",
-                "26_loong64": "26.9.0"
+                "26_amd64": "26.11.0",
+                "26_arm64": "26.11.0",
+                "26_ppc64le": "26.11.0",
+                "26_s390x": "26.11.0",
+                "26_loong64": "26.11.0"
               }
             }
           }
