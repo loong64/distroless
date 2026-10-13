@@ -135,13 +135,13 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "liblzma5_5.8.1-1-p-deb13u1_loong64",
+			"key": "liblzma5_5.8.1-1-p-deb13u2_loong64",
 			"name": "liblzma5",
-			"sha256": "5eb3c05e1856cdcc94a844f50de04a3b481114ee3ed678a48243cf3f59007b51",
+			"sha256": "07294b2d772bef1c671ba80630951f4a9f91b623a99478b2a89a5ea416ea6dfc",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/x/xz-utils/liblzma5_5.8.1-1+deb13u1_loong64.deb"
+				"https://mirrors.loong64.com/debian-security/pool/main/x/xz-utils/liblzma5_5.8.1-1+deb13u2_loong64.deb"
 			],
-			"version": "5.8.1-1+deb13u1"
+			"version": "5.8.1-1+deb13u2"
 		},
 		{
 			"arch": "loong64",
