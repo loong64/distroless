@@ -34,6 +34,14 @@ jobs:
             exit 0
           fi
 
+      - name: Set up QEMU
+        if: env.DISTROLESS_DIFF
+        uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4
+
+      - name: Update ldconfig
+        if: env.DISTROLESS_DIFF
+        run: bazel run //python3:update_ldconfig
+
       - name: Run update lockfile
         if: env.DISTROLESS_DIFF
         run: bazel mod deps --lockfile_mode=update

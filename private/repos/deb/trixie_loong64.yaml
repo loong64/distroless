@@ -1,0 +1,34 @@
+# debian 13, loong64 only
+version: 1
+
+sources:
+  - channel: trixie main
+    url: https://mirrors.loong64.com/debian
+  - channel: trixie-updates main
+    url: https://mirrors.loong64.com/debian
+  - channel: trixie-security main
+    url: https://mirrors.loong64.com/debian-security
+
+archs:
+  - loong64
+
+packages:
+  - base-files
+  - ca-certificates
+  - libc6
+  - libc-bin
+  - libssl3t64
+  - netbase
+  - openssl
+  - tzdata
+  - tzdata-legacy
+  - media-types
+  - zlib1g
+  - libzstd1
+  # c++
+  - gcc-14-base
+  - libgcc-s1
+  - libgomp1
+  - libstdc++6
+  # node26
+  - libatomic1

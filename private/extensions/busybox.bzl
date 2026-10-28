@@ -83,6 +83,18 @@ def _busybox_impl(module_ctx):
         build_file_content = BUSYBOX_ARCHIVE_BUILD,
     )
 
+    # To update loong64 busybox binary
+    # Get the latest commit hash from dist-loong64 branch of docker-library repo. You can also view it
+    # at https://github.com/loong64/busybox
+    # Substitute it in the link: https://github.com/loong64/busybox/raw/<latest-commit-hash>/latest/musl/busybox.tar.gz
+    # Update the sha256 value. Since github api doesn't give sha256 value, it can be obtained using sha256sum command.
+    http_archive(
+        name = "busybox_loong64",
+        sha256 = "2fb9b9430cd4990f6e6d455bd5e8380d385a1d0205634a509253a5811d6bba7c",
+        urls = ["https://raw.githubusercontent.com/loong64/busybox/7d355ea7a3fe0ed6733366b44e180e1b6a4e9068/latest/musl/loong64/rootfs.tar.gz"],
+        build_file_content = BUSYBOX_ARCHIVE_BUILD,
+    )
+
     return module_ctx.extension_metadata(
         root_module_direct_deps = [
             "busybox_amd64",
@@ -91,6 +103,7 @@ def _busybox_impl(module_ctx):
             "busybox_s390x",
             "busybox_ppc64le",
             "busybox_riscv64",
+            "busybox_loong64",
         ],
         root_module_direct_dev_deps = [],
     )

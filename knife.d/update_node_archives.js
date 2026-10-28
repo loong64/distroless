@@ -12,9 +12,27 @@ if (process.argv.length < 3) {
 }
 
 const versions = process.argv[2].split(",");
-const architectures = ["amd64", "arm64", "arm", "ppc64le", "s390x"];
+const architectures = ["amd64", "arm64", "arm", "ppc64le", "s390x", "loong64"];
 
 const nodeVersions = {};
+
+// LoongArch archives are not included in Node's official signed SHASUMS.
+const calculateChecksum = (url) => new Promise((resolve, reject) => {
+  https.get(url, (res) => {
+    if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+      res.resume();
+      return calculateChecksum(new URL(res.headers.location, url).toString()).then(resolve, reject);
+    }
+    if (res.statusCode !== 200) {
+      res.resume();
+      return reject(new Error(`HTTP ${res.statusCode} downloading ${url}`));
+    }
+    const hash = crypto.createHash("sha256");
+    res.on("data", (data) => hash.update(data));
+    res.on("end", () => resolve(hash.digest("hex")));
+    res.on("error", reject);
+  }).on("error", reject);
+});
 
 // Committed Node.js release public keys (active keys only), generated from
 // https://github.com/nodejs/release-keys by knife.d/update_node_keys.sh.
@@ -118,6 +136,14 @@ const fetchChecksums = async () => {
           arch = "x64";
         } else if (key === "arm") {
           arch = "armv7l";
+        }
+        if (key === "loong64") {
+          const url = `https://github.com/loong64/node/releases/download/v${nodeVersion}/node-v${nodeVersion}-linux-${arch}.tar.gz`;
+          nodeVersions[nodeVersion][key] = {
+            checksum: await calculateChecksum(url),
+            suffix: arch,
+          };
+          continue;
         }
         const filename = `node-v${nodeVersion}-linux-${arch}.tar.gz`;
         const checksum = shasums[filename];
@@ -256,7 +282,10 @@ def _node_impl(module_ctx):
         continue;
       }
       const arch = nodeVersions[nodeVersion][key];
-      const url = `https://nodejs.org/dist/v${nodeVersion}/node-v${nodeVersion}-linux-${arch.suffix}.tar.gz`;
+      const releaseBase = key === "loong64"
+        ? "https://github.com/loong64/node/releases/download"
+        : "https://nodejs.org/dist";
+      const url = `${releaseBase}/v${nodeVersion}/node-v${nodeVersion}-linux-${arch.suffix}.tar.gz`;
 
       nodeArchives += "\n";
       nodeArchives += `

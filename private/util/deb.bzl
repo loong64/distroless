@@ -20,11 +20,19 @@ ARCH_ALIAS = dict(
     amd64 = "amd64",
     s390x = "s390x",
     riscv64 = "riscv64",
+    loong64 = "loong64",
 )
 
 def _get_dist_arch_alias(arch, dist, repo_suffix):
     dist = DIST_ALIAS[dist]
     arch = ARCH_ALIAS[arch]
+
+    if dist == "trixie" and arch == "loong64" and repo_suffix == None:
+        dist = "trixie_loong64"
+
+    if dist == "trixie" and arch == "loong64" and repo_suffix == "python":
+        dist = "trixie_loong64_python"
+        repo_suffix = None
 
     if repo_suffix != None:
         dist += "_" + repo_suffix
