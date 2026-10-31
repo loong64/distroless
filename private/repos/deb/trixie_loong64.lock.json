@@ -80,24 +80,24 @@
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "tzdata_2026e-0-p-deb13u1_loong64",
+			"key": "tzdata_2026f-0-p-deb13u1_loong64",
 			"name": "tzdata",
-			"sha256": "165fbf909c02150f62091c64f751ae84c66ff86da124a46a58614d8e174a6acd",
+			"sha256": "2c1c561091402883430d0d47c57a3c0aa00b44afc8a6239265065a87211a5c11",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata_2026e-0+deb13u1_all.deb"
+				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata_2026f-0+deb13u1_all.deb"
 			],
-			"version": "2026e-0+deb13u1"
+			"version": "2026f-0+deb13u1"
 		},
 		{
 			"arch": "loong64",
 			"dependencies": [],
-			"key": "tzdata-legacy_2026e-0-p-deb13u1_loong64",
+			"key": "tzdata-legacy_2026f-0-p-deb13u1_loong64",
 			"name": "tzdata-legacy",
-			"sha256": "bc1912d3e805b6071bcc3fbe55c171e0d9c8cf44eeebafcaa825a724577cf8de",
+			"sha256": "92bb8f5ee8f87e6ee641ec3b24876d2d83b64dd1d7fe864b1cceac4cea7f1549",
 			"urls": [
-				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata-legacy_2026e-0+deb13u1_all.deb"
+				"https://mirrors.loong64.com/debian/pool/main/t/tzdata/tzdata-legacy_2026f-0+deb13u1_all.deb"
 			],
-			"version": "2026e-0+deb13u1"
+			"version": "2026f-0+deb13u1"
 		},
 		{
 			"arch": "loong64",
